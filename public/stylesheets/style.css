@@ -73,7 +73,7 @@ display: inline-block;
 	margin-top: 10px;
 	margin-left:10px;
 	margin-right: 10px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 .logo{
 	float: left;
@@ -95,8 +95,8 @@ display: inline-block;
 	height: 22px;
 	line-height: 22px;
 }
-.header-btn .price{
-	
+.header-btn .price .num{
+	font-size: 16px;
 }
 .form-wrapper{
 	background: url(/images/form-bg-half.png) no-repeat center top;
@@ -149,11 +149,11 @@ display: inline-block;
 	width: 220px;
 	height: 18px;
 	line-height: 18px;
-	margin-left: 540px;
+	margin-left: 40px;
 	margin-bottom: 15px;
 }
 .price-line{
-	margin-left: 60px;
+	margin-left: 50px;
 }
 .price-line .yen{
 	font-size: 24px;
@@ -168,7 +168,7 @@ display: inline-block;
 	line-height: 30px;
 	padding: 5px;
 	font-weight: bold;
-	width:130px;
+	width:150px;
 	margin-bottom: 12px;
 }
 input[type="button"],input[type="submit"]{
@@ -197,7 +197,7 @@ input[type="submit"].form-submit-add{
 	height: 50px;
 	width:60px;
 	padding: 5px;
-	margin-left: 70px;
+	margin-left: 80px;
 	line-height: 32px;
 	background: #dc8b03;
   background: url(/images/submit-btn-half.png) no-repeat center center;
