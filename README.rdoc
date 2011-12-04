@@ -1,1 +1,17 @@
 = Receibo
+
+= ローカル環境動作手順
+
+config/local_setting.rb作成
+
+  # Twitter OAuth Local Setting
+  LOCAL_OAUTH_CONSUMER_KEY = "YOUR_CONSUMER_KEY"
+  LOCAL_OAUTH_CONSUMER_SECRET = "YOUR_CONSUMER_SECRET"
+
+ローカルDB作成
+
+  rake db:migrate
+
+ローカルサーバ起動
+
+  rails s
