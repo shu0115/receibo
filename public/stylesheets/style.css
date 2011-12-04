@@ -7,7 +7,7 @@ html, body, h1, h2, h3, h4, h5, ul, ol, dl, li, dt, dd, p, header, hgroup, secti
 	font-size: 100%;
 }
 body{
-	background: #321e17 url(/img/bg.jpg) repeat 0 0;
+	background: #321e17 url(/images/bg.jpg) repeat 0 0;
 	color: #FFF;
 	text-shadow: -1px -1px rgba(0,0,0,1);
 	line-height: 1.6em;
@@ -84,29 +84,29 @@ display: inline-block;
 	padding-right: 10px;
 	float: right;
 	background: #000;
-	background:url(/img/csl-up.png) no-repeat right center, -webkit-gradient(linear, left top, left bottom, from(#222),to(#000));
-  background:url(/img/csl-up.png) no-repeat right center, -moz-linear-gradient(top,#222,#000);
-  -webkit-background-size: 8px 4px;  
-  -moz-background-size: 8px 4px;  
-  -o-background-size: 8px 4px;
+	background:-webkit-gradient(linear, left top, left bottom, from(#222),to(#000));
+  background:-moz-linear-gradient(top,#222,#000);
   -moz-box-shadow:inset 1px 1px 0 rgba(255,255,255,0.1);  
   -webkit-box-shadow:inset 1px 1px 0 rgba(255,255,255,0.1);
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border: 1px solid #000;
-	height: 16px;
-	line-height: 16px;
+	height: 22px;
+	line-height: 22px;
+}
+.header-btn .price{
+	
 }
 .form-wrapper{
-	background: url(/img/form-bg-half.png) no-repeat center top;
+	background: url(/images/form-bg-half.png) no-repeat center top;
 	/*
   -webkit-background-origin: padding; 
   -moz-background-origin: padding;
   -moz-background-size: 320px 183px;    
   -o-background-size: 320px 183px;
   -webkit-background-size: 320px 183px;
-  */  
+  */
   width: 320px;
   height: 183px;
   margin:0 auto;
@@ -146,20 +146,20 @@ display: inline-block;
 	font-size: 14px;
 	font-weight: bold;
 	padding: 5px;
-	width: 240px;
+	width: 220px;
 	height: 18px;
 	line-height: 18px;
-	margin-left: 30px;
+	margin-left: 540px;
 	margin-bottom: 15px;
 }
 .price-line{
-	margin-left: 30px;
+	margin-left: 60px;
 }
 .price-line .yen{
 	font-size: 24px;
 	float: left;
 	margin-right: 5px;
-	margin-top: 5px;
+	margin-top: 12px;
 	font-weight: bold;
 }
 .form-price{
@@ -168,7 +168,7 @@ display: inline-block;
 	line-height: 30px;
 	padding: 5px;
 	font-weight: bold;
-	width:188px;
+	width:130px;
 	margin-bottom: 12px;
 }
 input[type="button"],input[type="submit"]{
@@ -197,21 +197,23 @@ input[type="submit"].form-submit-add{
 	height: 50px;
 	width:60px;
 	padding: 5px;
-	margin-left: 100px;
+	margin-left: 70px;
 	line-height: 32px;
 	background: #dc8b03;
-  background: url(/img/submit-btn.png) no-repeat center center;
-  background: url(/img/submit-btn.png) no-repeat center center;
+  background: url(/images/submit-btn-half.png) no-repeat center center;
+  background: url(/images/submit-btn-half.png) no-repeat center center;
   border:none;
 	-webkit-box-shadow:inset 1px 1px 1px rgba(255,255,255,0.3);
 	-moz-box-shadow:  inset 1px 1px 1px rgba(255,255,255,0.3);
 	color: #FFF;
 	text-shadow: -1px -1px 0 rgba(0,0,0,0.3) !important;
+	/*
   -moz-background-size: 60px 50px;    
   -o-background-size: 60px 50px;
   -webkit-background-size: 60px 50px; 
-  -webkit-background-origin: padding;　/* Safari,Google Chrome用 */  
-  -moz-background-origin: padding;　/* Firefox用 */
+  -webkit-background-origin: padding; 
+  -moz-background-origin: padding;
+  */
 }
 .receipt{
 	margin:0 10px;
@@ -220,34 +222,40 @@ input[type="submit"].form-submit-add{
 	content: "";
 	display: block;
 	height:12px;
-	background:url(/img/paper_footer.png) repeat-x 0 0;
+	background:url(/images/paper_footer_half.png) repeat-x 0 0;
+	/*
   -moz-background-size: 6px 12px;    
   -o-background-size: 6px 12px;
   -webkit-background-size: 6px 12px;
-	margin-left: 7px;
-	margin-right: 8px;
   -webkit-background-origin: padding;  
   -moz-background-origin: padding;
+  */
+	margin-left: 7px;
+	margin-right: 8px;
 }
 .receipt-hdr{
-	background:url(/img/paper-hdr.png) no-repeat left top;
+	background:url(/images/paper-hdr-half.png) no-repeat left top;
+	/*
   -moz-background-size: 1000px 15px;    
   -o-background-size: 1000px 15px;
   -webkit-background-size: 1000px 15px;
-  -webkit-background-origin: padding;　/* Safari,Google Chrome用 */  
-  -moz-background-origin: padding;　/* Firefox用 */
+  -webkit-background-origin: padding;  
+  -moz-background-origin: padding;
+  */
   text-align: right;
-  height: 15px;
+  height: 14px;
 }
 .receipt-hdr-right{
-	background:url(/img/paper-hdr-right.png) no-repeat left top;
+	background:url(/images/paper-hdr-right-half.png) no-repeat left top;
+	/*
   -moz-background-size: 15px 15px;    
   -o-background-size: 15px 15px;
   -webkit-background-size: 15px 15px;
-  -webkit-background-origin: padding;　/* Safari,Google Chrome用 */  
-  -moz-background-origin: padding;　/* Firefox用 */
+  -webkit-background-origin: padding;  
+  -moz-background-origin: padding;
+  */
 	margin:0;
-	height: 15px;
+	height: 14px;
 	width: 15px;
 	float: right;
 }
@@ -256,7 +264,7 @@ input[type="submit"].form-submit-add{
   text-shadow: 1px 1px 0 #FFF;
 	margin-left: 7px;
 	margin-right: 8px;
-	background: #FFF url(/img/paper.jpg) repeat 0 0;
+	background: #FFF url(/images/paper.jpg) repeat 0 0;
   -moz-background-size: 48px 48px;    
   -o-background-size: 48px 48px;
   -webkit-background-size: 48px 48px;
@@ -264,10 +272,12 @@ input[type="submit"].form-submit-add{
   -moz-background-origin: padding;　/* Firefox用 */
 }
 .receipt ul li{
-	background: url(/img/line.png) repeat-x 0 0;
+	background: url(/images/line.png) repeat-x 0 0;
   padding: 10px;
-  -webkit-background-origin: padding;　/* Safari,Google Chrome用 */  
-  -moz-background-origin: padding;　/* Firefox用 */
+  /*
+  -webkit-background-origin: padding;  
+  -moz-background-origin: padding;
+  */
 }
 .receipt ul li:after{
 content: ".";
