@@ -9,12 +9,16 @@ class ItemsController < ApplicationController
 
     @items = Item.where( :user_id => session[:user_id] )
     @items = @items.where( "created_at >= '#{Time.now.beginning_of_day.strftime("%Y-%m-%d %H:%M:%S")}' AND created_at <= '#{Time.now.end_of_day.strftime("%Y-%m-%d %H:%M:%S")}'" )
+    @today_sum = @items.sum( :price )
     @items = @items.order( "created_at DESC" ).all
 
-    @today_sum = Item.where( "created_at >= '#{Time.now.beginning_of_day.strftime("%Y-%m-%d %H:%M:%S")}' AND created_at <= '#{Time.now.end_of_day.strftime("%Y-%m-%d %H:%M:%S")}'" )
-    @today_sum = @today_sum.sum( :price )
+#    @today_sum = Item.where( :user_id => session[:user_id] )
+#    @today_sum = @today_sum.where( "created_at >= '#{Time.now.beginning_of_day.strftime("%Y-%m-%d %H:%M:%S")}' AND created_at <= '#{Time.now.end_of_day.strftime("%Y-%m-%d %H:%M:%S")}'" )
+#    @today_sum = @today_sum.sum( :price )
+#    @today_sum = @items.sum( :price )
     
-    @this_month_sum = Item.where( "created_at >= '#{Time.now.beginning_of_month.strftime("%Y-%m-%d %H:%M:%S")}' AND created_at < '#{Time.now.months_since(1).beginning_of_month.strftime("%Y-%m-%d %H:%M:%S")}'" )
+    @this_month_sum = Item.where( :user_id => session[:user_id] )
+    @this_month_sum = @this_month_sum.where( "created_at >= '#{Time.now.beginning_of_month.strftime("%Y-%m-%d %H:%M:%S")}' AND created_at < '#{Time.now.months_since(1).beginning_of_month.strftime("%Y-%m-%d %H:%M:%S")}'" )
     @this_month_sum = @this_month_sum.sum( :price )
     
     @now = Time.now
