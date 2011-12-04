@@ -7,7 +7,7 @@ html, body, h1, h2, h3, h4, h5, ul, ol, dl, li, dt, dd, p, header, hgroup, secti
 	font-size: 100%;
 }
 body{
-	background: #321e17 url(/img/bg.jpg) repeat 0 0;
+	background: #321e17 url(/images/bg.jpg) repeat 0 0;
 	color: #FFF;
 	text-shadow: -1px -1px rgba(0,0,0,1);
 	line-height: 1.6em;
@@ -84,8 +84,8 @@ display: inline-block;
 	padding-right: 10px;
 	float: right;
 	background: #000;
-	background:url(/img/csl-up.png) no-repeat right center, -webkit-gradient(linear, left top, left bottom, from(#222),to(#000));
-  background:url(/img/csl-up.png) no-repeat right center, -moz-linear-gradient(top,#222,#000);
+	background:url(/images/csl-up.png) no-repeat right center, -webkit-gradient(linear, left top, left bottom, from(#222),to(#000));
+  background:url(/images/csl-up.png) no-repeat right center, -moz-linear-gradient(top,#222,#000);
   -webkit-background-size: 8px 4px;  
   -moz-background-size: 8px 4px;  
   -o-background-size: 8px 4px;
@@ -99,7 +99,7 @@ display: inline-block;
 	line-height: 16px;
 }
 .form-wrapper{
-	background: url(/img/form-bg-half.png) no-repeat center top;
+	background: url(/images/form-bg-half.png) no-repeat center top;
 	/*
   -webkit-background-origin: padding; 
   -moz-background-origin: padding;
@@ -200,8 +200,8 @@ input[type="submit"].form-submit-add{
 	margin-left: 100px;
 	line-height: 32px;
 	background: #dc8b03;
-  background: url(/img/submit-btn.png) no-repeat center center;
-  background: url(/img/submit-btn.png) no-repeat center center;
+  background: url(/images/submit-btn.png) no-repeat center center;
+  background: url(/images/submit-btn.png) no-repeat center center;
   border:none;
 	-webkit-box-shadow:inset 1px 1px 1px rgba(255,255,255,0.3);
 	-moz-box-shadow:  inset 1px 1px 1px rgba(255,255,255,0.3);
@@ -220,7 +220,7 @@ input[type="submit"].form-submit-add{
 	content: "";
 	display: block;
 	height:12px;
-	background:url(/img/paper_footer.png) repeat-x 0 0;
+	background:url(/images/paper_footer.png) repeat-x 0 0;
   -moz-background-size: 6px 12px;    
   -o-background-size: 6px 12px;
   -webkit-background-size: 6px 12px;
@@ -230,7 +230,7 @@ input[type="submit"].form-submit-add{
   -moz-background-origin: padding;
 }
 .receipt-hdr{
-	background:url(/img/paper-hdr.png) no-repeat left top;
+	background:url(/images/paper-hdr.png) no-repeat left top;
   -moz-background-size: 1000px 15px;    
   -o-background-size: 1000px 15px;
   -webkit-background-size: 1000px 15px;
@@ -240,7 +240,7 @@ input[type="submit"].form-submit-add{
   height: 15px;
 }
 .receipt-hdr-right{
-	background:url(/img/paper-hdr-right.png) no-repeat left top;
+	background:url(/images/paper-hdr-right.png) no-repeat left top;
   -moz-background-size: 15px 15px;    
   -o-background-size: 15px 15px;
   -webkit-background-size: 15px 15px;
@@ -256,7 +256,7 @@ input[type="submit"].form-submit-add{
   text-shadow: 1px 1px 0 #FFF;
 	margin-left: 7px;
 	margin-right: 8px;
-	background: #FFF url(/img/paper.jpg) repeat 0 0;
+	background: #FFF url(/images/paper.jpg) repeat 0 0;
   -moz-background-size: 48px 48px;    
   -o-background-size: 48px 48px;
   -webkit-background-size: 48px 48px;
@@ -264,7 +264,7 @@ input[type="submit"].form-submit-add{
   -moz-background-origin: padding;　/* Firefox用 */
 }
 .receipt ul li{
-	background: url(/img/line.png) repeat-x 0 0;
+	background: url(/images/line.png) repeat-x 0 0;
   padding: 10px;
   -webkit-background-origin: padding;　/* Safari,Google Chrome用 */  
   -moz-background-origin: padding;　/* Firefox用 */
