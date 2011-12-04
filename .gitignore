@@ -1,0 +1,10 @@
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
+
+# 2011/12/04 Add
+.DS_Store
+.redcar/
+
+config/local_setting.rb

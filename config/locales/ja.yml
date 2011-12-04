@@ -1,0 +1,7 @@
+ja:
+  # date_select対応
+  date:
+    order:
+    - :year
+    - :month
+    - :day
