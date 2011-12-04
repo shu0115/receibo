@@ -84,15 +84,8 @@ display: inline-block;
 	padding-right: 10px;
 	float: right;
 	background: #000;
-  background:url(/images/csl-up.png) no-repeat right center, -webkit-gradient(linear, left top, left bottom, from(#222),to(#000));
-  background:url(/images/csl-up.png) no-repeat right center, -moz-linear-gradient(top,#222,#000);
-  -webkit-background-size: 8px 4px;  
-  -moz-background-size: 8px 4px;  
-  -o-background-size: 8px 4px;
-  /*
 	background:-webkit-gradient(linear, left top, left bottom, from(#222),to(#000));
   background:-moz-linear-gradient(top,#222,#000);
-  */
   -moz-box-shadow:inset 1px 1px 0 rgba(255,255,255,0.1);  
   -webkit-box-shadow:inset 1px 1px 0 rgba(255,255,255,0.1);
 	-webkit-border-radius: 4px;
@@ -207,13 +200,8 @@ input[type="submit"].form-submit-add{
 	margin-left: 80px;
 	line-height: 32px;
 	background: #dc8b03;
-<<<<<<< HEAD
-  background: url(/images/submit-btn.png) no-repeat center center;
-  background: url(/images/submit-btn.png) no-repeat center center;
-=======
   background: url(/images/submit-btn-half.png) no-repeat center center;
   background: url(/images/submit-btn-half.png) no-repeat center center;
->>>>>>> e7a353e41bf3c28920790c6a964e24413b5402e3
   border:none;
 	-webkit-box-shadow:inset 1px 1px 1px rgba(255,255,255,0.3);
 	-moz-box-shadow:  inset 1px 1px 1px rgba(255,255,255,0.3);
@@ -234,12 +222,8 @@ input[type="submit"].form-submit-add{
 	content: "";
 	display: block;
 	height:12px;
-<<<<<<< HEAD
-	background:url(/images/paper_footer.png) repeat-x 0 0;
-=======
 	background:url(/images/paper_footer_half.png) repeat-x 0 0;
 	/*
->>>>>>> e7a353e41bf3c28920790c6a964e24413b5402e3
   -moz-background-size: 6px 12px;    
   -o-background-size: 6px 12px;
   -webkit-background-size: 6px 12px;
@@ -250,12 +234,8 @@ input[type="submit"].form-submit-add{
 	margin-right: 8px;
 }
 .receipt-hdr{
-<<<<<<< HEAD
-	background:url(/images/paper-hdr.png) no-repeat left top;
-=======
 	background:url(/images/paper-hdr-half.png) no-repeat left top;
 	/*
->>>>>>> e7a353e41bf3c28920790c6a964e24413b5402e3
   -moz-background-size: 1000px 15px;    
   -o-background-size: 1000px 15px;
   -webkit-background-size: 1000px 15px;
@@ -266,12 +246,8 @@ input[type="submit"].form-submit-add{
   height: 14px;
 }
 .receipt-hdr-right{
-<<<<<<< HEAD
-	background:url(/images/paper-hdr-right.png) no-repeat left top;
-=======
 	background:url(/images/paper-hdr-right-half.png) no-repeat left top;
 	/*
->>>>>>> e7a353e41bf3c28920790c6a964e24413b5402e3
   -moz-background-size: 15px 15px;    
   -o-background-size: 15px 15px;
   -webkit-background-size: 15px 15px;
