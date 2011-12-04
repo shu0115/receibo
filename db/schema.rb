@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(:version => 20111204021011) do
 
   create_table "items", :force => true do |t|
+    t.integer  "user_id"
     t.string   "name"
     t.integer  "price"
     t.datetime "created_at"
