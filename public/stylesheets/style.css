@@ -323,7 +323,7 @@ visibility: hidden;
 	font-size: 24px;
 }
 .footer{
-	margin:10px auto;
+	margin:5px auto 10px;
 	text-align: center;
 }
 .footer a{
@@ -342,7 +342,45 @@ visibility: hidden;
 	padding: 0;
 }
 */
-/*--------------------//JOB----------------------*/
+.header-top{
+	margin:20px auto;
+	text-align: center;
+}
+.receipt-inner{
+	background: #FFF;
+	background: #FFF url(/images/paper.jpg) repeat 0 0;
+  -moz-background-size: 48px 48px;    
+  -o-background-size: 48px 48px;
+  -webkit-background-size: 48px 48px;
+  -webkit-background-origin: padding;　/* Safari,Google Chrome用 */  
+  -moz-background-origin: padding;　/* Firefox用 */
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-left: 7px;
+	margin-right: 8px;
+	text-align: center;
+}
+.twitter-btn{
+	margin:0 auto;
+	text-align: center;
+	padding-top:10px;
+}
+.top-copy{
+	padding-top: 10px;
+	color: #666;
+  text-shadow: 1px 1px 0 #FFF;
+}
+.top-read{
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.top-orange{
+	padding-top: 10px;
+	color: #e17a00;
+	font-weight: bold;
+	font-size: 14px;
+}
 /*--------------------ADJUST----------------------*/
 .mgnbtm10{
 	margin-bottom: 10px;
