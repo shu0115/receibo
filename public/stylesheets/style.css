@@ -234,7 +234,7 @@ input[type="submit"].form-submit-add{
 	margin-right: 8px;
 }
 .receipt-hdr{
-	background:url(/images/paper-hdr-half.png) no-repeat left top;
+	background:url(/images/paper-hdr-half.png) repeat-x left top;
 	/*
   -moz-background-size: 1000px 15px;    
   -o-background-size: 1000px 15px;
@@ -290,6 +290,9 @@ visibility: hidden;
 	float: left;
 	font-weight: bold;
 }
+.receipt ul li .name .num{
+	font-size: 18px;
+}
 .receipt ul li .price{
 	float: right;
 	font-weight: bold;
@@ -326,6 +329,19 @@ visibility: hidden;
 .footer a{
 	text-decoration: underline;
 }
+.receipt a{
+	color: #666;
+}
+/*
+.receipt.month li a{
+	display:block;
+}
+.receipt.month li{
+	display: inline;
+	margin:0;
+	padding: 0;
+}
+*/
 /*--------------------//JOB----------------------*/
 /*--------------------ADJUST----------------------*/
 .mgnbtm10{
