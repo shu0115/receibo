@@ -2,6 +2,12 @@
 class ItemsController < ApplicationController
 
   #-----#
+  # top #
+  #-----#
+  def top
+  end
+  
+  #-----#
   # add #
   #-----#
   def add
