@@ -82,7 +82,31 @@ class ItemsController < ApplicationController
     redirect_to :action => "add"
   end
 
+  #-------#
+  # month #
+  #-------#
+  def month
+    @items = Item.where( :user_id => session[:user_id] )
+    @items = @items.where( "created_at >= '#{Time.now.beginning_of_month.strftime("%Y-%m-%d %H:%M:%S")}' AND created_at <= '#{Time.now.months_since(1).end_of_month.strftime("%Y-%m-%d %H:%M:%S")}'" )
+    @this_month_sum = @items.sum( :price )
+    @items = @items.order( "created_at DESC" ).all
 
+    @this_year_sum = Item.where( :user_id => session[:user_id] )
+    @this_year_sum = @this_year_sum.where( "created_at >= '#{Time.now.beginning_of_year.strftime("%Y-%m-%d %H:%M:%S")}' AND created_at < '#{Time.now.years_since(1).beginning_of_year.strftime("%Y-%m-%d %H:%M:%S")}'" )
+    @this_year_sum = @this_year_sum.sum( :price )
+
+    @this_month_sum = Item.where( :user_id => session[:user_id] )
+    @this_month_sum = @this_month_sum.where( "created_at >= '#{Time.now.beginning_of_month.strftime("%Y-%m-%d %H:%M:%S")}' AND created_at < '#{Time.now.months_since(1).beginning_of_month.strftime("%Y-%m-%d %H:%M:%S")}'" )
+    @this_month_sum = @this_month_sum.sum( :price )
+
+    @day_sum_array = Array.new
+    1.upto
+
+    @now = Time.now
+    @wdays = ["日", "月", "火", "水", "木", "金", "土"]
+    
+    render :layout => false
+  end
 
 
 
