@@ -51,7 +51,7 @@ Receibo::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => "welcome#index"
-  root :to => 'items#add'
+  root :to => 'items#top'
 
   # See how all your routes lay out with "rake routes"
 

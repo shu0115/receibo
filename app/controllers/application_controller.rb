@@ -12,11 +12,14 @@ class ApplicationController < ActionController::Base
   #-----------#
   # authorize #
   #-----------#
+  # ログイン認証
   def authorize
-    unless params[:controller] == "sessions"
-      if session[:user_id].blank?
-        redirect_to login_path
-      end
+    if (params[:controller] == "items" and params[:action] == "top") and params[:controller] != "sessions"
+      # トップページでログイン済みであればaddへリダイレクト
+      redirect_to :controller => "items", :action => "add" unless session[:user_id].blank?
+    elsif params[:controller] != "sessions"
+      # トップページ以外で未ログインであればトップヘリダイレクト
+      redirect_to :root if session[:user_id].blank?
     end
   end
 

@@ -10,7 +10,7 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><!-- Webクリップから開いた場合にバッテリーのステータスバーを半透明にできる。black/black-translucent/default -->
 	<link rel="apple-touch-icon" href="/images/apple-touch-icon.png" /><!-- Webクリップしたときのアイコン -->
 	<link rel="stylesheet" href="/stylesheets/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
-	<script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!--<script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>-->
 	<title>Receibo</title>
 </head>
 <body>
@@ -23,7 +23,7 @@
 				<div class="receipt-hdr-right"></div>
 			</div>
 			<div class="receipt-inner">
-				<p class="twitter-btn"><a href="#"><img src="/images/btn_twitter.png" alt="Twitterアカウントでログイン" width="230" height="70"></a></p>
+				<p class="twitter-btn"><a href="<%= login_path %>"><img src="/images/btn_twitter.png" alt="Twitterアカウントでログイン" width="230" height="70"></a></p>
 				<div class="top-copy">
 					<!-- <p class="top-read">新感覚、カンタン家計簿サイト！</p> -->
 					<!-- <p>スマートフォンで、会計済んだらその場で、<br />買ったものと値段をつぶやき感覚で記録しよう！</p> -->
