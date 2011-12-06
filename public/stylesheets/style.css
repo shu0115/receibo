@@ -342,6 +342,7 @@ visibility: hidden;
 .footer{
 	margin:5px auto 10px;
 	text-align: center;
+	line-height: 1.2em;
 }
 .footer a{
 	text-decoration: none;
