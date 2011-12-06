@@ -6,38 +6,40 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" >	<!-- iPhone用 -->
 	<meta name="format-detection" content="telephone=no" />
 	<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-	<meta name="apple-mobile-web-app-capable" content="no" /><!-- Webクリップから開いた場合にブックマーク追加などのツールバーを非表示にする -->
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- Webクリップから開いた場合にブックマーク追加などのツールバーを非表示にする -->
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><!-- Webクリップから開いた場合にバッテリーのステータスバーを半透明にできる。black/black-translucent/default -->
 	<link rel="apple-touch-icon" href="/images/apple-touch-icon.png" /><!-- Webクリップしたときのアイコン -->
 	<link rel="stylesheet" href="/stylesheets/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
-	<!--<script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>-->
+	<script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>
 	<title>Receibo</title>
 </head>
 <body>
 	<header class="header clearfix">
 		<h1 class="logo"><a href="/"><img src="/images/logo.png" alt="Receibo-レシーボ" width="140" height="35"></a></h1>
-		<p class="header-btn"><a href="/items/add"><span class="num"><%= @now.strftime("%Y") %></span>年<span class="price">￥<span class="num"><%= @this_year_sum %></span></a></p>
+		<p class="header-btn"><a href="#"><span class="num">12</span>月<span class="price">￥<span class="num">86,327</span></a></p>
 	</header>
 	<article>
+		<div class="form-wrapper">
+			<form>
+				<!-- input valueに入力要素を追加 -->
+				<input type="text" "item[name]" id="buy" value="お弁当" placeholder="今、何買った？" class="form-textarea form-name">
+				<div class="price-line clear-fix">
+					<p class="yen">￥</p>
+					<input type="number" name="item[price]" id="price" value="480" placeholder="00,000" class="form-textarea form-price" src="580">
+					<!-- input valueに"なおす"  classに"edit"を追加 -->
+					<input type="submit" name="commit" value="なおす"class="form-submit-add edit">
+				</div>
+			</form>
+		</div>
 		<div class="receipt">
 			<div class="receipt-hdr">
 				<div class="receipt-hdr-right"></div>
 			</div>
-				<ul>
-					<li class="total">
-						<p class="name"><span class="num"><%= @now.strftime("%Y") %></span>年<span class="num"><%= @now.strftime("%m") %></span>月</p>
-						<p class="price">￥<span class="num"><%= @this_month_sum %></span></p>
-					</li>
-
-          <% 1.upto(Time.now.end_of_month.day){ |day| %>
-            <li class="item">
-            	<a href="#">
-	              <P class="name"><span class="num"><%= @now.strftime("%m") %>/<%= sprintf("%02d", day) %></span>（<%= Item::WDAYS[Time.local(Time.now.year, Time.now.month, day, 0, 0, 0).wday] %>）</P>
-	              <p class="price">￥<span class="num"><%= @day_sum_array[day] %></span></p>
-            	</a>
-            </li>
-          <% } %>
-				</ul>
+			<!-- 削除ボタン（この部分をadd.htmlのulとまるっと差し替え） -->
+			<div class="receipt-inner pdgtop10">
+				<p class="btn-cmn"><a href="#">この買い物を削除する</a></p>
+			</div>
+			<!-- //差し替え部分END -->
 		</div>
 	</article>
 	<footer class="footer">

@@ -35,7 +35,7 @@
 				<div class="price-line clear-fix">
 					<p class="yen">￥</p>
 					<input type="number" name="item[price]" id="price" value="" placeholder="00,000" class="form-textarea form-price">
-					<input type="submit" name="commit" value="" class="form-submit-add">
+					<input type="submit" name="commit" value="+" class="form-submit-add">
 				</div>
 			</form>
 		</div>
@@ -51,9 +51,11 @@
 					</li>
           
           <% @items.each do |item| %>
-            <li>
-              <P class="name"><%= item.name %></P>
-              <p class="price">￥<span class="num"><%= item.price %></span></p>
+            <li class="item">
+            	<a href="#">
+              	<P class="name"><%= item.name %></P>
+              	<p class="price">￥<span class="num"><%= item.price %></span></p>
+              </a>
             </li>
           <% end %>
 				</ul>
