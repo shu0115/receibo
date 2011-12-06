@@ -1,0 +1,8 @@
+
+<br />
+　ユーザ数：<%= @users.count %><br />
+<br />
+<% @users.each_with_index{ |user,index| %>
+　<%= index %>：<%= user.login %>：<%= user.name %><br />
+<% } %>
+<br />
