@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
     @this_month_sum = @this_month_sum.sum( :price )
     
     @now = Time.now
-    @wdays = ["日", "月", "火", "水", "木", "金", "土"]
+#    @wdays = ["日", "月", "火", "水", "木", "金", "土"]
     
     render :layout => false
   end
@@ -76,7 +76,7 @@ class ItemsController < ApplicationController
     }
 
     @now = Time.now
-    @wdays = ["日", "月", "火", "水", "木", "金", "土"]
+#    @wdays = ["日", "月", "火", "水", "木", "金", "土"]
     
     render :layout => false
   end

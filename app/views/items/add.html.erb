@@ -46,7 +46,7 @@
 			</div>
 				<ul>
 					<li class="total">
-						<p class="name"><span class="num"><%= @now.strftime("%m/%d") %></span>（<%= @wdays[@now.wday] %>）</p>
+						<p class="name"><span class="num"><%= @now.strftime("%m/%d") %></span>（<%= Item::WDAYS[@now.wday] %><%#= @wdays[@now.wday] %>）</p>
 						<p class="price">￥<span class="num"><%= @today_sum %></span></p>
 					</li>
           
