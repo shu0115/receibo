@@ -391,7 +391,7 @@ visibility: hidden;
 .top-read{
 	font-size: 16px;
 	font-weight: bold;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 .top-orange{
 	padding-top: 10px;
@@ -443,8 +443,86 @@ visibility: hidden;
 	width: 200px;
 	margin:0 auto;
 }
+.explain li{
+	color: #333;
+	font-size: 11px;
+}
+.explain li:after{
+content: ".";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}
+.receipt ul.explain li{
+	padding: 5px;
+}
+.explain li p{
+	margin:0 auto;
+	text-align: left;
+	font-weight: normal;
+	line-height: 1.3em;
+}
+.orange{
+	font-weight: bold;
+}
+.e00{
+	width: 190px;
+	font-weight: bold;
+	font-size: 14px;
+	float: right;
+	padding-top: 20px;
+}
+.e01{
+	padding-left: 30px;
+	width: 90px;
+	float: left;
+	padding-top: 20px;
+}
+.e02{
+	padding-top: 20px;
+	width:95px;
+	float: right;
+	padding-right: 20px;
+}
+.e03{
+	float: left;
+	padding-left: 30px;
+	width: 100px;
+	padding-top: 20px;
+}
+.e04{
+	float: right;
+	width:130px;
+	padding-top: 20px;
+}
+.explain-inner{
+	width: 280px;
+	margin:0 auto;
+}
+.i00{
+	padding-left: 20px;
+	float: left;
+}
+.i01{
+	float: right;
+	padding-right: 10px;
+}
+.i02{
+	float: left;
+	padding-left: 20px;
+}
+.i03{
+	float: right;
+	padding-right: 20px;
+}
+.i04{
+	float: left;
+	padding-left: 20px;
+}
 
-/*--------------------ADJUST----------------------*/
+
+*--------------------ADJUST----------------------*/
 .mgnbtm10{
 	margin-bottom: 10px;
 }
