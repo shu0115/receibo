@@ -30,9 +30,11 @@
 					</li>
 
           <% 1.upto(Time.now.end_of_month.day){ |day| %>
-            <li>
-              <P class="name"><span class="num"><%= @now.strftime("%m") %>/<%= sprintf("%02d", day) %></span>（<%= Item::WDAYS[Time.local(Time.now.year, Time.now.month, day, 0, 0, 0).wday] %>）</P>
-              <p class="price">￥<span class="num"><%= @day_sum_array[day] %></span></p>
+            <li class="item">
+            	<a href="#">
+	              <P class="name"><span class="num"><%= @now.strftime("%m") %>/<%= sprintf("%02d", day) %></span>（<%= Item::WDAYS[Time.local(Time.now.year, Time.now.month, day, 0, 0, 0).wday] %>）</P>
+	              <p class="price">￥<span class="num"><%= @day_sum_array[day] %></span></p>
+            	</a>
             </li>
           <% } %>
 				</ul>

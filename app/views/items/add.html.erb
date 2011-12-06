@@ -51,9 +51,11 @@
 					</li>
           
           <% @items.each do |item| %>
-            <li>
-              <P class="name"><%= item.name %></P>
-              <p class="price">￥<span class="num"><%= item.price %></span></p>
+            <li class="item">
+            	<a href="#">
+              	<P class="name"><%= item.name %></P>
+              	<p class="price">￥<span class="num"><%= item.price %></span></p>
+              </a>
             </li>
           <% end %>
 				</ul>
