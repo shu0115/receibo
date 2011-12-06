@@ -2,6 +2,11 @@
 
 = ローカル環境動作手順
 
+Gemインストール
+
+  cd /〜.../receibo
+  bundle install
+
 config/local_setting.rb作成
 
   # Twitter OAuth Local Setting
@@ -18,6 +23,7 @@ config/local_setting.rb作成
 
 = 更新履歴
 
+  2011/12/06：正式リリース前の注意書きを追加
   2011/12/05：トップページ追加
   2011/12/04：P4Dハッカソン(アプリ名決定、デザイン、プログラム)
   2011/12/03：開発前ミーティング(開発アイデア決定)
