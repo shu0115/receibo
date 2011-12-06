@@ -84,8 +84,8 @@ display: inline-block;
 	padding-right: 10px;
 	float: right;
 	background: #000;
-	background:-webkit-gradient(linear, left top, left bottom, from(#222),to(#000));
-  background:-moz-linear-gradient(top,#222,#000);
+	background:-webkit-gradient(linear, left top, left bottom, from(#333),to(#000));
+  background:-moz-linear-gradient(top,#333,#000);
   -moz-box-shadow:inset 1px 1px 0 rgba(255,255,255,0.1);  
   -webkit-box-shadow:inset 1px 1px 0 rgba(255,255,255,0.1);
 	-webkit-border-radius: 4px;
@@ -116,15 +116,15 @@ display: inline-block;
 .form-textarea{
 	display: block;
 	padding:0 5px;
-	border:1px solid #CCC;
+	border:1px solid #000;
 	font-size: 14px;
-  background: -webkit-gradient(linear,left top,left bottom,from(#eee),to(#fff));
-  background: -moz-linear-gradient(top,#eee,#fff);
+  background: -webkit-gradient(linear,left top,left bottom,from(#555),to(#666));
+  background: -moz-linear-gradient(top,#555,#666);
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	-moz-border-radius: 4px;
-	-webkit-box-shadow: inset 1px 1px 3px #CCC;
-	-moz-box-shadow: inset 1px 1px 3px #CCC;
+	-webkit-box-shadow: inset 1px 1px 2px #333,1px 1px 0 rgba(255,255,255,0.1);
+	-moz-box-shadow: inset 1px 1px 2px #333,1px 1px 0 rgba(255,255,255,0.1);
 	margin: 10px;
 }
 .form-textarea:focus{
@@ -207,6 +207,7 @@ input[type="submit"].form-submit-add{
 	-moz-box-shadow:  inset 1px 1px 1px rgba(255,255,255,0.3);
 	color: #FFF;
 	text-shadow: -1px -1px 0 rgba(0,0,0,0.3) !important;
+	font-size: 20px;
 	/*
   -moz-background-size: 60px 50px;    
   -o-background-size: 60px 50px;
@@ -214,6 +215,9 @@ input[type="submit"].form-submit-add{
   -webkit-background-origin: padding; 
   -moz-background-origin: padding;
   */
+}
+input[type="submit"].form-submit-add.edit{
+	font-size: 14px;
 }
 .receipt{
 	margin:0 10px;
@@ -286,6 +290,18 @@ height: 0;
 clear: both;
 visibility: hidden;
 }
+.receipt ul li.item{
+	padding: 0;
+	background:url(/images/line.png) repeat-x 0 0;
+}
+.receipt ul li.item a{
+	display: block;
+  padding: 12px;
+  height:18px;
+  line-height: 18px;
+  padding-right: 20px;
+  background: url(/images/csl.png) no-repeat center right;
+}
 .receipt ul li .name{
 	float: left;
 	font-weight: bold;
@@ -317,6 +333,7 @@ visibility: hidden;
 	font-size: 18px;
 }
 .receipt ul li.total .price{
+	padding-top: 7px;
 	color:#e17a00;
 }
 .receipt ul li.total .price .num{
@@ -382,9 +399,6 @@ visibility: hidden;
 	font-weight: bold;
 	font-size: 14px;
 }
-li.item{
-	
-}
 .caution{
 	color: #e17a00;
 	text-align: left;
@@ -395,6 +409,41 @@ li.item{
 	border-radius: 4px;
 	-moz-border-radius: 4px;
 }
+.error{
+	color: #e17a00;
+	text-align: left;
+	border:2px solid #e17a00;
+	padding: 10px;
+	margin:0 10px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	font-weight: bold;
+	font-size:14px;
+}
+.btn-cmn a{
+	display: block;
+	padding: 5px;
+	padding-right: 10px;
+	background: #000;
+	background:-webkit-gradient(linear, left top, left bottom, from(#333),to(#000));
+  background:-moz-linear-gradient(top,#333,#000);
+  -moz-box-shadow:inset 1px 1px 0 rgba(255,255,255,0.1),1px 1px 2px rgba(0,0,0,0.2);  
+  -webkit-box-shadow:inset 1px 1px 0 rgba(255,255,255,0.1),1px 1px 2px rgba(0,0,0,0.2);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border: 1px solid #000;
+	height: 22px;
+	line-height: 22px;
+	text-shadow: -1px -1px 0 rgba(0,0,0,1);
+	color: #FFF;
+	font-weight: bold;
+	font-size: 14px;
+	width: 200px;
+	margin:0 auto;
+}
+
 /*--------------------ADJUST----------------------*/
 .mgnbtm10{
 	margin-bottom: 10px;
@@ -422,6 +471,9 @@ li.item{
 }
 .mgnbtm30{
 	margin-bottom: 30px;
+}
+.pdgtop10{
+	padding-top: 10px;
 }
 .center{
 	text-align: center;
