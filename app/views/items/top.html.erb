@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" >	<!-- iPhone用 -->
 	<meta name="format-detection" content="telephone=no" />
 	<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-	<meta name="apple-mobile-web-app-capable" content="no" /><!-- Webクリップから開いた場合にブックマーク追加などのツールバーを非表示にする -->
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- Webクリップから開いた場合にブックマーク追加などのツールバーを非表示にする -->
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><!-- Webクリップから開いた場合にバッテリーのステータスバーを半透明にできる。black/black-translucent/default -->
 	<link rel="apple-touch-icon" href="/images/apple-touch-icon.png" /><!-- Webクリップしたときのアイコン -->
 	<link rel="stylesheet" href="/stylesheets/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
@@ -22,8 +22,9 @@
 			<div class="receipt-hdr">
 				<div class="receipt-hdr-right"></div>
 			</div>
-			<div class="receipt-inner">
-				<p class="twitter-btn"><a href="<%= login_path %>"><img src="/images/btn_twitter.png" alt="Twitterアカウントでログイン" width="230" height="70"></a></p>
+			<div class="receipt-inner pdgtop10">
+				<p class="btn-cmn btn-tw"><a href="<%= login_path %>">Twitterでログイン</a></p>
+			</div>
 			<!-- 解説部分 -->
 			<ul class="explain">
 				<li class="explain-head">
@@ -68,7 +69,7 @@
 		</div>
 	</article>
 	<footer class="footer">
-		<p class="copyright"><small>Developed by <a href="http://twitter.com/shu_0115/" target="_blank">@shu_0115</a>, Designed by <a href="http://twitter.com/ken_c_lo/" target="_blank">@ken_c_lo</a></small></p>
+		<p class="copyright"><small>Developed by <a href="http://twitter.com/shu_0115/" target="_blank">@shu_0115</a>, Designed by <a href="http://twitter.com/ken_c_lo/" target="_blank">@ken_c_lo</a><br />in <a href="https://github.com/prog4designer/hackathon1st/wiki" target="_blank">#p4dhack</a></small></p>
 	</footer>
 </body>
 </html>

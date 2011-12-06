@@ -70,7 +70,7 @@ display: inline-block;
 }
 /*header*/
 .header{
-	margin-top: 10px;
+	margin-top: 30px;
 	margin-left:10px;
 	margin-right: 10px;
 	margin-bottom: 20px;
@@ -83,9 +83,9 @@ display: inline-block;
 	padding: 5px;
 	padding-right: 10px;
 	float: right;
-	background: #000;
-	background:-webkit-gradient(linear, left top, left bottom, from(#333),to(#000));
-  background:-moz-linear-gradient(top,#333,#000);
+	background: #222;
+	background:-webkit-gradient(linear, left top, left bottom, from(#444),to(#000));
+  background:-moz-linear-gradient(top,#444,#000);
   -moz-box-shadow:inset 1px 1px 0 rgba(255,255,255,0.1);  
   -webkit-box-shadow:inset 1px 1px 0 rgba(255,255,255,0.1);
 	-webkit-border-radius: 4px;
@@ -342,6 +342,7 @@ visibility: hidden;
 .footer{
 	margin:5px auto 10px;
 	text-align: center;
+	line-height: 1.2em;
 }
 .footer a{
 	text-decoration: none;
@@ -361,7 +362,7 @@ visibility: hidden;
 }
 */
 .header-top{
-	margin:20px auto;
+	margin:40px auto 20px;
 	text-align: center;
 }
 .receipt-inner{
@@ -425,9 +426,9 @@ visibility: hidden;
 	display: block;
 	padding: 5px;
 	padding-right: 10px;
-	background: #000;
-	background:-webkit-gradient(linear, left top, left bottom, from(#333),to(#000));
-  background:-moz-linear-gradient(top,#333,#000);
+	background: #222;
+	background:-webkit-gradient(linear, left top, left bottom, from(#444),to(#000));
+  background:-moz-linear-gradient(top,#444,#000);
   -moz-box-shadow:inset 1px 1px 0 rgba(255,255,255,0.1),1px 1px 2px rgba(0,0,0,0.2);  
   -webkit-box-shadow:inset 1px 1px 0 rgba(255,255,255,0.1),1px 1px 2px rgba(0,0,0,0.2);
 	-webkit-border-radius: 4px;
@@ -474,7 +475,7 @@ li.explain-head:after{
 }
 .e00{
 	width: 180px;
-	font-weight: bold;
+	font-weight: bold !important;
 	font-size: 13px;
 	float: right;
 	padding-top: 20px;
@@ -489,6 +490,7 @@ li.explain-head:after{
 	-moz-border-radius: 4px;
 	-moz-border-radius: 4px;
 	margin-top: 10px;
+	text-align: center;
 }
 .e01{
 }
@@ -510,7 +512,7 @@ li.explain-head:after{
 	-moz-border-radius: 4px;
 	text-align: left;
 	width:260px;
-	background: url(/images/allow.png) no-repeat left top;
+	background:url(/images/allow.png) no-repeat left top;
 }
 .explain-inner.head{
 	background: url(/images/top_00.png) no-repeat left center;
@@ -547,9 +549,19 @@ visibility: hidden;
 
 .receipt ul.explain li.explain-head{
 	background:url(/images/line.png) repeat-x 0 0;
-	padding-top: 20px;
+	padding-top: 0px;
 }
-
+.btn-cmn.btn-tw a{
+	font-size: 16px;
+	padding-left: 30px;
+	color: #FFF !important;
+	background:#000 url(/images/icn_tw_half.png) no-repeat 20px center;
+	background:url(/images/icn_tw_half.png) no-repeat 20px center,-webkit-gradient(linear, left top, left bottom, from(#333),to(#000));
+  background:url(/images/icn_tw_half.png) no-repeat 20px center,-moz-linear-gradient(top,#333,#000);
+  width: 190px;
+	height: 26px;
+	line-height: 26px;
+}
 *--------------------ADJUST----------------------*/
 .mgnbtm10{
 	margin-bottom: 10px;
