@@ -474,7 +474,7 @@ li.explain-head:after{
 }
 .e00{
 	width: 180px;
-	font-weight: bold;
+	font-weight: bold !important;
 	font-size: 13px;
 	float: right;
 	padding-top: 20px;
@@ -553,7 +553,7 @@ visibility: hidden;
 .btn-cmn.btn-tw a{
 	font-size: 16px;
 	padding-left: 30px;
-	color: #36cdff !important;
+	color: #FFF !important;
 	background:#000 url(/images/icn_tw_half.png) no-repeat 20px center;
 	background:url(/images/icn_tw_half.png) no-repeat 20px center,-webkit-gradient(linear, left top, left bottom, from(#333),to(#000));
   background:url(/images/icn_tw_half.png) no-repeat 20px center,-moz-linear-gradient(top,#333,#000);
