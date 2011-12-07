@@ -16,14 +16,14 @@
 <body>
 	<header class="header clearfix">
 		<h1 class="logo"><a href="/"><img src="/images/logo.png" alt="Receibo-レシーボ" width="140" height="35"></a></h1>
-		<p class="header-btn"><a href="/items/month"><span class="num"><%= @now.strftime("%m") %></span>月&nbsp;<span class="price">￥<span class="num"><%= @this_month_sum %></span></a></p>
+		<p class="header-btn"><a href="/items/month"><span class="num"><%= @now.strftime("%m") %></span>月&nbsp;<span class="price">￥<span class="num"><%= number_with_delimiter(@this_month_sum, :delimiter => ",") %></span></a></p>
 	</header>
   
 	<article>
 		<div class="form-wrapper">
       <%# 追加フォーム %>
       <!--<form>-->
-      <form accept-charset="UTF-8" action="/items/create" class="new_item" id="new_item" method="post">
+      <form accept-charset="UTF-8" action="/items/create?from=add" class="new_item" id="new_item" method="post">
         <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" />
           <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
         </div>
@@ -46,15 +46,15 @@
 			</div>
 				<ul>
 					<li class="total">
-						<p class="name"><span class="num"><%= @now.strftime("%m/%d") %></span>（<%= Item::WDAYS[@now.wday] %><%#= @wdays[@now.wday] %>）</p>
-						<p class="price">￥<span class="num"><%= @today_sum %></span></p>
+						<p class="name"><span class="num"><%= @now.strftime("%m/%d") %></span>（<%= Item::WDAYS[@now.wday] %>）</p>
+						<p class="price">￥<span class="num"><%= number_with_delimiter(@today_sum, :delimiter => ",") %></span></p>
 					</li>
           
           <% @items.each do |item| %>
             <li class="item">
             	<a href="#">
               	<P class="name"><%= item.name %></P>
-              	<p class="price">￥<span class="num"><%= item.price %></span></p>
+              	<p class="price">￥<span class="num"><%= number_with_delimiter(item.price, :delimiter => ",") %></span></p>
               </a>
             </li>
           <% end %>

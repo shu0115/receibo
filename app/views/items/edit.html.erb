@@ -10,34 +10,48 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><!-- Webクリップから開いた場合にバッテリーのステータスバーを半透明にできる。black/black-translucent/default -->
 	<link rel="apple-touch-icon" href="/images/apple-touch-icon.png" /><!-- Webクリップしたときのアイコン -->
 	<link rel="stylesheet" href="/stylesheets/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
-	<script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!--<script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>-->
 	<title>Receibo</title>
 </head>
 <body>
 	<header class="header clearfix">
 		<h1 class="logo"><a href="/"><img src="/images/logo.png" alt="Receibo-レシーボ" width="140" height="35"></a></h1>
-		<p class="header-btn"><a href="index.html"><span class="num">12/11</span>（土）&nbsp;<span class="price">￥<span class="num">12,327</span></a></p>
+		<p class="header-btn"><a href="/items/day?date=<%= CGI.escape(@this_day.strftime("%Y-%m-%d").to_s) %>"><span class="num"><%= @this_day.strftime("%m/%d") %></span>（<%= Item::WDAYS[@this_day.wday] %>）&nbsp;<span class="price">￥<span class="num"><%= number_with_delimiter(@today_sum, :delimiter => ",") %></span></a></p>
 	</header>
+  
 	<article>
 		<div class="form-wrapper">
-			<form>
+      <%# 修正フォーム %>
+			<form action="/items/update/<%= @item.id %>">
 				<!-- input valueに入力要素を追加 -->
-				<input type="text" "item[name]" id="buy" value="お弁当" placeholder="今、何買った？" class="form-textarea form-name">
+				<input type="text" name="item[name]" id="buy" value="<%= @item.name %>" placeholder="今、何買った？" class="form-textarea form-name">
 				<div class="price-line clear-fix">
 					<p class="yen">￥</p>
-					<input type="number" name="item[price]" id="price" value="480" placeholder="00,000" class="form-textarea form-price" src="580">
+					<input type="number" name="item[price]" id="price" value="<%= @item.price %>" placeholder="00,000" class="form-textarea form-price" src="580">
 					<!-- input valueに"なおす"  classに"edit"を追加 -->
 					<input type="submit" name="commit" value="なおす"class="form-submit-add edit">
 				</div>
 			</form>
 		</div>
+    
 		<div class="receipt">
 			<div class="receipt-hdr">
 				<div class="receipt-hdr-right"></div>
 			</div>
+
+      <%# 更新完了時の値変更確認のため、名前と金額を表示したい 2011/12/07 %>
+      <ul>
+        <li class="total">
+          <p class="name"><span class="num"><%= @item.name %></span></p>
+          <p class="price">￥<span class="num"><%= number_with_delimiter(@item.price, :delimiter => ",") %></span></p>
+        </li>
+      </ul>
+      
 			<!-- 削除ボタン（この部分をadd.htmlのulとまるっと差し替え） -->
 			<div class="receipt-inner pdgtop10">
-				<p class="btn-cmn"><a href="#">この買い物を削除する</a></p>
+        <% if false %><p class="btn-cmn"><a href="/items/delete/<%= @item.id %>">この買い物を削除する</a></p><% end %>
+				<p class="btn-cmn"><%= link_to 'この買い物を削除する', { :action => "delete", :id => @item.id }, { :confirm => '本当に削除してよろしいですか？' } %></p>
+        
 			</div>
 			<!-- //差し替え部分END -->
 		</div>
