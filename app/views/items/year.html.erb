@@ -10,7 +10,7 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><!-- Webクリップから開いた場合にバッテリーのステータスバーを半透明にできる。black/black-translucent/default -->
 	<link rel="apple-touch-icon" href="/images/apple-touch-icon.png" /><!-- Webクリップしたときのアイコン -->
 	<link rel="stylesheet" href="/stylesheets/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
-	<script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!--<script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>-->
 	<title>Receibo</title>
 </head>
 <body>
@@ -21,76 +21,34 @@
 		 -->
 	</header>
 	<article>
+
+    <% @sum_hash.sort{ |a, b| a[0] <=> b[0] }.each{ |sum| %>
 		<div class="receipt month">
 			<div class="receipt-hdr">
 				<div class="receipt-hdr-right"></div>
 			</div>
-				<ul>
-					<li class="total">
-						<p class="name"><span class="num">2012</span>年</p>
-						<p class="price">￥<span class="num">2,512,850</span></p>
-					</li>
-					<li class="item">
-						<a href="month.html">
-							<P class="name"><span class="num">12</span>月</P>
-							<p class="price">￥<span class="num">321,250</span></p>
-						</a>
-					</li>
-					<li class="item">
-						<a href="month.html">
-							<P class="name"><span class="num">11</span>月</P>
-							<p class="price">￥<span class="num">321,250</span></p>
-						</a>
-					</li>
-					<li class="item">
-						<a href="month.html">
-							<P class="name"><span class="num">10</span>月</P>
-							<p class="price">￥<span class="num">321,250</span></p>
-						</a>
-					</li>
-					<li class="item">
-						<a href="month.html">
-							<P class="name"><span class="num">9</span>月</P>
-							<p class="price">￥<span class="num">321,250</span></p>
-						</a>
-					</li>
-				</ul>
+      
+			<ul>
+				<li class="total">
+					<p class="name"><span class="num"><%= sum[0] %></span>年</p>
+					<p class="price">￥<span class="num"><%= number_with_delimiter(sum[1][:sum], :delimiter => ",") %></span></p>
+				</li>
+          
+        <% 1.upto(12){ |month| %>
+          <% unless sum[1][month].blank? %>
+          <li class="item">
+            <% this_month = "#{sum[0]}-#{month}-01" %>
+  					<a href="/items/month?date=<%= CGI.escape(this_month) %>">
+              <P class="name"><span class="num"><%= month %></span>月</P>
+              <p class="price">￥<span class="num"><%= number_with_delimiter(sum[1][month], :delimiter => ",") %></span></p>
+            </a>
+          </li>
+          <% end %>
+        <% } %>
+			</ul>
 		</div>
-		<div class="receipt month">
-			<div class="receipt-hdr">
-				<div class="receipt-hdr-right"></div>
-			</div>
-				<ul>
-					<li class="total">
-						<p class="name"><span class="num">2011</span>年</p>
-						<p class="price">￥<span class="num">2,512,850</span></p>
-					</li>
-					<li class="item">
-						<a href="month.html">
-							<P class="name"><span class="num">12</span>月</P>
-							<p class="price">￥<span class="num">321,250</span></p>
-						</a>
-					</li>
-					<li class="item">
-						<a href="month.html">
-							<P class="name"><span class="num">11</span>月</P>
-							<p class="price">￥<span class="num">321,250</span></p>
-						</a>
-					</li>
-					<li class="item">
-						<a href="month.html">
-							<P class="name"><span class="num">10</span>月</P>
-							<p class="price">￥<span class="num">321,250</span></p>
-						</a>
-					</li>
-					<li class="item">
-						<a href="month.html">
-							<P class="name"><span class="num">9</span>月</P>
-							<p class="price">￥<span class="num">321,250</span></p>
-						</a>
-					</li>
-				</ul>
-		</div>
+    <% } %>
+
 	</article>
 	<footer class="footer">
 		<p class="copyright"><small>Developed by <a href="http://twitter.com/shu_0115/" target="_blank">@shu_0115</a>, Designed by <a href="http://twitter.com/ken_c_lo/" target="_blank">@ken_c_lo</a><br />in <a href="https://github.com/prog4designer/hackathon1st/wiki" target="_blank">#p4dhack</a></small></p>

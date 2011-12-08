@@ -7,11 +7,28 @@ Gemインストール
   cd /〜.../receibo
   bundle install
 
+Twitterアプリ登録
+
+  http://dev.twitter.com/apps/new
+
+  Name: *
+    ローカル開発用(何でもいい)
+  Description: *
+    ローカル開発用(何でもいい)
+  WebSite: *
+    http://0.0.0.0:3000
+  Callback URL:
+    http://0.0.0.0:3000
+  
+  ※「Yes, I agree」にチェック、「CAPTCHA」に表示されている単語を入力し、「Create your Twitter application」をクリック
+
 config/local_setting.rb作成
 
   # Twitter OAuth Local Setting
   LOCAL_OAUTH_CONSUMER_KEY = "YOUR_CONSUMER_KEY"
   LOCAL_OAUTH_CONSUMER_SECRET = "YOUR_CONSUMER_SECRET"
+
+  ※Twitterアプリ登録完了後に表示された「Consumer key」を「YOUR_CONSUMER_KEY」に、「Consumer secret」を「YOUR_CONSUMER_SECRET」にそれぞれ入力する
 
 ローカルDB作成
 
@@ -19,7 +36,7 @@ config/local_setting.rb作成
 
 ローカルサーバ起動
 
-  rails s
+  bundle exec rails s
 
 ページアクセス
 
@@ -27,6 +44,8 @@ config/local_setting.rb作成
 
 = 更新履歴
 
+  2011/12/08：年別ページ追加
+  2011/12/07：編集／削除ページ追加、カンマ区切り表示対応
   2011/12/06：正式リリース前の注意書きを追加
   2011/12/05：トップページ追加
   2011/12/04：P4Dハッカソン(アプリ名決定、デザイン、プログラム)
