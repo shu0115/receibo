@@ -23,12 +23,11 @@ Twitterアプリ登録
   ※「Yes, I agree」にチェック、「CAPTCHA」に表示されている単語を入力し、「Create your Twitter application」をクリック
 
 config/local_setting.rb作成
+　※Twitterアプリ登録完了後に表示された「Consumer key」を「YOUR_CONSUMER_KEY」に、「Consumer secret」を「YOUR_CONSUMER_SECRET」にそれぞれ入力する
 
   # Twitter OAuth Local Setting
   LOCAL_OAUTH_CONSUMER_KEY = "YOUR_CONSUMER_KEY"
   LOCAL_OAUTH_CONSUMER_SECRET = "YOUR_CONSUMER_SECRET"
-
-  ※Twitterアプリ登録完了後に表示された「Consumer key」を「YOUR_CONSUMER_KEY」に、「Consumer secret」を「YOUR_CONSUMER_SECRET」にそれぞれ入力する
 
 ローカルDB作成
 
