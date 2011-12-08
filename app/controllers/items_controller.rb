@@ -33,8 +33,6 @@ class ItemsController < ApplicationController
   # create #
   #--------#
   def create
-    print "[ params ] : " ; p params ;
-    
     @item = Item.new( params[:item] )
     
     unless params[:date].blank?
@@ -47,7 +45,11 @@ class ItemsController < ApplicationController
       @item.user_id = session[:user_id]
 
       unless @item.save
-        flash[:notice] = "項目の作成に失敗しました。"
+        flash[:notice] = ""
+        @item.errors.full_messages.each{ |msg|
+          flash[:notice] += "#{msg}<br />"
+        }
+        item = params[:item]
       end
     else
       flash[:notice] = "登録する情報がありません。"
@@ -55,7 +57,7 @@ class ItemsController < ApplicationController
 
     from = params[:from]
     from = "add" if from.blank?
-    redirect_to :action => from, :date => params[:date]
+    redirect_to :action => from, :date => params[:date], :keep_item => item
   end
 
   #-----#
@@ -174,7 +176,10 @@ class ItemsController < ApplicationController
     @item = Item.where( :user_id => session[:user_id], :id => params[:id] ).first
 
     unless @item.update_attributes( params[:item] )
-      flash[:notice] = "更新に失敗しました。"
+      flash[:notice] = ""
+      @item.errors.full_messages.each{ |msg|
+        flash[:notice] += "#{msg}<br />"
+      }
     end
 
     redirect_to :action => "edit", :id => @item.id

@@ -29,12 +29,12 @@
         </div>
         
         <%# 項目名 %>
-				<input type="text" name="item[name]" id="buy" value="" placeholder="いま、何買った？" class="form-textarea form-name">
+				<input type="text" name="item[name]" id="buy" value="<%= params[:keep_item][:name] unless params[:keep_item].blank? %>" placeholder="いま、何買った？" class="form-textarea form-name">
         
         <%# 金額 %>
 				<div class="price-line clear-fix">
 					<p class="yen">￥</p>
-					<input type="number" name="item[price]" id="price" value="" placeholder="00,000" class="form-textarea form-price">
+					<input type="number" name="item[price]" id="price" value="<%= params[:keep_item][:price] unless params[:keep_item].blank? %>" placeholder="00,000" class="form-textarea form-price">
 					<input type="submit" name="commit" value="+" class="form-submit-add">
 				</div>
 			</form>
@@ -44,6 +44,19 @@
 			<div class="receipt-hdr">
 				<div class="receipt-hdr-right"></div>
 			</div>
+
+			<!-- エラーメッセージ -->
+      <% unless flash[:notice].blank? %>
+			<div class="receipt-inner">
+				<p class="error">
+          <%=raw flash[:notice] %>
+					<!-- 金額が入力されていません。 -->
+					<!-- 商品名が入力されていません -->
+				</p>
+			</div>
+      <% end %>
+			<!-- //エラーメッセージ -->
+
 				<ul>
 					<li class="total">
 						<p class="name"><span class="num"><%= @now.strftime("%m/%d") %></span>（<%= Item::WDAYS[@now.wday] %>）</p>
@@ -52,7 +65,7 @@
           
           <% @items.each do |item| %>
             <li class="item">
-            	<a href="#">
+            	<a href="/items/edit/<%= item.id %>">
               	<P class="name"><%= item.name %></P>
               	<p class="price">￥<span class="num"><%= number_with_delimiter(item.price, :delimiter => ",") %></span></p>
               </a>

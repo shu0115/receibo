@@ -5,3 +5,18 @@ ja:
     - :year
     - :month
     - :day
+    
+  activerecord:
+    attributes:
+      item:
+        name: 買った物
+        price: 金額
+    errors:
+      models:
+        item:
+          attributes:
+            name:
+              blank: を入力してください。
+            price:
+              blank: を入力してください。
+              not_a_number: は数値で入力してください。

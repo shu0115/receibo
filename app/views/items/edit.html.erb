@@ -38,6 +38,18 @@
 			<div class="receipt-hdr">
 				<div class="receipt-hdr-right"></div>
 			</div>
+      
+			<!-- エラーメッセージ -->
+      <% unless flash[:notice].blank? %>
+			<div class="receipt-inner">
+				<p class="error">
+          <%=raw flash[:notice] %>
+					<!-- 金額が入力されていません。 -->
+					<!-- 商品名が入力されていません -->
+				</p>
+			</div>
+      <% end %>
+			<!-- //エラーメッセージ -->
 
       <%# 更新完了時の値変更確認のため、名前と金額を表示したい 2011/12/07 %>
       <ul>
