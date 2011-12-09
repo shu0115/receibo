@@ -53,7 +53,7 @@
 
       <%# 更新完了時の値変更確認のため、名前と金額を表示したい 2011/12/07 %>
       <ul>
-        <li class="total">
+        <li>
           <p class="name"><span class="num"><%= @item.name %></span></p>
           <p class="price">￥<span class="num"><%= number_with_delimiter(@item.price, :delimiter => ",") %></span></p>
         </li>
