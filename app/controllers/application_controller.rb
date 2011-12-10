@@ -8,7 +8,23 @@ class ApplicationController < ActionController::Base
   # httpsリダイレクト
   before_filter :ssl_redirect
 
+  # BASIC認証
+  before_filter :password_protected if Rails.env.staging?
+
+  protected
+
+  #--------------------#
+  # password_protected #
+  #--------------------#
+  # BASIC認証
+  def password_protected
+    authenticate_or_request_with_http_basic do |username, password|
+      username == "receibo" && password == "receibo1204"
+    end
+  end
+
   private
+
   #-----------#
   # authorize #
   #-----------#
