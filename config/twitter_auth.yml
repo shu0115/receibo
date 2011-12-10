@@ -16,6 +16,14 @@ test:
   api_timeout: 10
   remember_for: 14 # days
   oauth_callback: "http://localhost:3000/oauth_callback"
+staging:
+  strategy: oauth
+  oauth_consumer_key: <%= ENV['OAUTH_CONSUMER_KEY'] %>
+  oauth_consumer_secret: <%= ENV['OAUTH_CONSUMER_SECRET'] %> 
+  authorize_path: "/oauth/authenticate"
+  base_url: "https://twitter.com"
+  api_timeout: 10
+  remember_for: 14 # days
 production:
   strategy: oauth
   oauth_consumer_key: <%= ENV['OAUTH_CONSUMER_KEY'] %>
@@ -24,4 +32,3 @@ production:
   base_url: "https://twitter.com"
   api_timeout: 10
   remember_for: 14 # days
-
