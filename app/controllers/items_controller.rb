@@ -131,16 +131,22 @@ class ItemsController < ApplicationController
     # 最新の買い物を取得
     @new_item = Item.where( :user_id => session[:user_id] ).order( "created_at DESC" ).first
     
-    this_at = Time.now
-    latest_at = Time.now
     this_at = @old_item.created_at unless @old_item.blank?
     latest_at = @new_item.created_at unless @new_item.blank?
     
     @sum_hash = Hash.new
 
+    if this_at.blank? and latest_at.blank?
+      now_at = Time.now
+      @sum_hash[now_at.year] = Hash.new
+      @sum_hash[now_at.year][now_at.month] = Hash.new
+      @sum_hash[now_at.year][:sum] = 0
+      @sum_hash[now_at.year][now_at.month] = 0
+    else
+
     # 最古の年月から1ヶ月ずつ進め、最新の年月以下の間、繰り返す
-    unless this_at.blank?
-      while this_at <= @new_item.created_at
+    #    unless this_at.blank?
+      while this_at <= latest_at
         @sum_hash[this_at.year] = Hash.new if @sum_hash[this_at.year].blank?
         @sum_hash[this_at.year][this_at.month] = Hash.new if @sum_hash[this_at.year][this_at.month].blank?
         
@@ -155,9 +161,10 @@ class ItemsController < ApplicationController
         this_month_sum = Item.where( :user_id => session[:user_id] )
         this_month_sum = this_month_sum.where( "created_at >= '#{this_at.beginning_of_month.strftime("%Y-%m-%d %H:%M:%S")}' AND created_at < '#{this_at.months_since(1).beginning_of_month.strftime("%Y-%m-%d %H:%M:%S")}'" )
         @sum_hash[this_at.year][this_at.month] = this_month_sum.sum( :price )
-        
+
         this_at = this_at.beginning_of_month.next_month
       end
+      #end
     end
   end
 
