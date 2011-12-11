@@ -124,7 +124,7 @@ class ItemsController < ApplicationController
 
     # 最新の買い物を取得
     @new_item = Item.where( :user_id => session[:user_id] ).order( "buy_date DESC, created_at DESC" ).first
-    
+
     this_at = @old_item.buy_date unless @old_item.blank?
     latest_at = @new_item.buy_date unless @new_item.blank?
     
@@ -136,7 +136,7 @@ class ItemsController < ApplicationController
       @sum_hash[now_at.year][now_at.month] = Hash.new
       @sum_hash[now_at.year][:sum] = 0
       @sum_hash[now_at.year][now_at.month] = 0
-    else
+    elsif !this_at.blank? and !latest_at.blank?
       # 最古の年月から1ヶ月ずつ進め、最新の年月以下の間、繰り返す
       while this_at <= latest_at
         @sum_hash[this_at.year] = Hash.new if @sum_hash[this_at.year].blank?
