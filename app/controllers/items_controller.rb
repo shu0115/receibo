@@ -5,7 +5,6 @@ class ItemsController < ApplicationController
   # top #
   #-----#
   def top
-#    render :layout => false
   end
   
   #-----#
@@ -24,9 +23,6 @@ class ItemsController < ApplicationController
     @this_month_sum = @this_month_sum.sum( :price )
     
     @now = Time.now
-#    @wdays = ["日", "月", "火", "水", "木", "金", "土"]
-    
-#    render :layout => false
   end
 
   #--------#
@@ -84,8 +80,6 @@ class ItemsController < ApplicationController
     @this_month_sum = @this_month_sum.sum( :price )
 
     @now = Time.now
-    
-#    render :layout => false
   end
 
   #-------#
@@ -119,8 +113,6 @@ class ItemsController < ApplicationController
       day_sum = day_sum.sum( :price )
       @day_sum_array[day] = day_sum
     }
-
-#    render :layout => false
   end
 
   #------#
@@ -145,9 +137,7 @@ class ItemsController < ApplicationController
       @sum_hash[now_at.year][:sum] = 0
       @sum_hash[now_at.year][now_at.month] = 0
     else
-
-    # 最古の年月から1ヶ月ずつ進め、最新の年月以下の間、繰り返す
-    #    unless this_at.blank?
+      # 最古の年月から1ヶ月ずつ進め、最新の年月以下の間、繰り返す
       while this_at <= latest_at
         @sum_hash[this_at.year] = Hash.new if @sum_hash[this_at.year].blank?
         @sum_hash[this_at.year][this_at.month] = Hash.new if @sum_hash[this_at.year][this_at.month].blank?
@@ -166,7 +156,6 @@ class ItemsController < ApplicationController
 
         this_at = this_at.beginning_of_month.next_month
       end
-      #end
     end
   end
 
