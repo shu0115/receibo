@@ -20,3 +20,4 @@ ja:
             price:
               blank: を入力してください。
               not_a_number: は数値で入力してください。
+              not_an_integer: は整数で入力してください。
