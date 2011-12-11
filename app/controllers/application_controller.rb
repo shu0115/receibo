@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :authorize
 
   # httpsリダイレクト
-  before_filter :ssl_redirect
+  before_filter :ssl_redirect unless Rails.env.development?
 
   # BASIC認証
   before_filter :password_protected if Rails.env.staging?
@@ -43,8 +43,9 @@ class ApplicationController < ActionController::Base
   # ssl_redirect #
   #--------------#
   def ssl_redirect
-    # httpsへリダイレクト(production環境のみ)
-    if Rails.env.production? and request.env["HTTP_X_FORWARDED_PROTO"].to_s != "https"
+    # httpsへリダイレクト
+    #    if Rails.env.production? and request.env["HTTP_X_FORWARDED_PROTO"].to_s != "https"
+    unless request.env["HTTP_X_FORWARDED_PROTO"].to_s == "https"
       request.env["HTTP_X_FORWARDED_PROTO"] = "https"
       redirect_to request.url and return
     end
