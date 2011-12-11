@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   # top #
   #-----#
   def top
-    render :layout => false
+#    render :layout => false
   end
   
   #-----#
@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
     @now = Time.now
 #    @wdays = ["日", "月", "火", "水", "木", "金", "土"]
     
-    render :layout => false
+#    render :layout => false
   end
 
   #--------#
@@ -85,7 +85,7 @@ class ItemsController < ApplicationController
 
     @now = Time.now
     
-    render :layout => false
+#    render :layout => false
   end
 
   #-------#
@@ -120,7 +120,7 @@ class ItemsController < ApplicationController
       @day_sum_array[day] = day_sum
     }
 
-    render :layout => false
+#    render :layout => false
   end
 
   #------#

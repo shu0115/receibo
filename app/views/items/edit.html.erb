@@ -1,3 +1,5 @@
+<%# if false〜endまでのコードは無効 %>
+<% if false %>
 <!DOCTYPE HTML>
 <html lang="JP">
 <head>
@@ -13,7 +15,10 @@
 	<!--<script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>-->
 	<title>Receibo</title>
 </head>
+
 <body>
+<% end %>
+
 	<header class="header clearfix">
 		<h1 class="logo"><a href="/"><img src="/images/logo.png" alt="Receibo-レシーボ" width="140" height="35"></a></h1>
 		<p class="header-btn"><a href="/items/day?date=<%= CGI.escape(@this_day.strftime("%Y-%m-%d").to_s) %>"><span class="num"><%= @this_day.strftime("%m/%d") %></span>（<%= Item::WDAYS[@this_day.wday] %>）&nbsp;<span class="price">￥<span class="num"><%= number_with_delimiter(@today_sum, :delimiter => ",") %></span></a></p>
@@ -68,9 +73,13 @@
 			<!-- //差し替え部分END -->
 		</div>
 	</article>
+
+<%# if false〜endまでのコードは無効 %>
+<% if false %>
 	<footer class="footer">
 		<p class="copyright"><small>Developed by <a href="http://twitter.com/shu_0115/" target="_blank">@shu_0115</a>, Designed by <a href="http://twitter.com/ken_c_lo/" target="_blank">@ken_c_lo</a><br />in <a href="https://github.com/prog4designer/hackathon1st/wiki" target="_blank">#p4dhack</a>, <a href="http://creativecommons.org/licenses/by-sa/2.1/jp/" target="_blank">CC BY-SA 2.1</a></small>
 		</p>
 	</footer>
 </body>
 </html>
+<% end %>

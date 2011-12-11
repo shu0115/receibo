@@ -1,3 +1,5 @@
+<%# if false〜endまでのコードは無効 %>
+<% if false %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +9,61 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+<% end %>
 
+
+
+
+
+<!DOCTYPE HTML>
+<html lang="JP">
+<head>
+	<meta charset="UTF-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" >	<!-- iPhone用 -->
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+	<meta name="apple-mobile-web-app-capable" content="yes" /><!-- Webクリップから開いた場合にブックマーク追加などのツールバーを非表示にする -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><!-- Webクリップから開いた場合にバッテリーのステータスバーを半透明にできる。black/black-translucent/default -->
+	<link rel="apple-touch-icon" href="/images/apple-touch-icon.png" /><!-- Webクリップしたときのアイコン -->
+	<link rel="stylesheet" href="/stylesheets/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<!--<script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>-->
+	<title>Receibo</title>
+
+  <%# Googleアナリティクス %>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-27637366-1']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+
+<body>
+
+<%# ページ内容を読み込み %>
 <%= yield %>
 
+	<footer class="footer">
+		<p class="copyright"><small>Developed by <a href="http://twitter.com/shu_0115/" target="_blank">@shu_0115</a>, Designed by <a href="http://twitter.com/ken_c_lo/" target="_blank">@ken_c_lo</a><br />in <a href="https://github.com/prog4designer/hackathon1st/wiki" target="_blank">#p4dhack</a>, <a href="http://creativecommons.org/licenses/by-sa/2.1/jp/" target="_blank">CC BY-SA 2.1</a></small>
+		</p>
+	</footer>
+
+</body>
+
+</html>
+
+
+
+
+
+<%# if false〜endまでのコードは無効 %>
+<% if false %>
 </body>
 </html>
+<% end %>
