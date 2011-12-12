@@ -12,7 +12,11 @@
 	<link rel="apple-touch-icon" href="/images/apple-touch-icon.png" /><!-- Webクリップしたときのアイコン -->
 	<link rel="stylesheet" href="/stylesheets/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	<!--<script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>-->
-	<title>Receibo</title>
+
+  <title>Receibo</title>
+
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
 
   <%# Googleアナリティクス %>
   <script type="text/javascript">
