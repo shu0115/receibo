@@ -27,7 +27,7 @@ class AdminController < ApplicationController
       admin_twitter_id = 0
     end
     
-    redirect_to :root unless user.twitter_id.to_i == admin_twitter_id
+    redirect_to :root unless user.twitter_id.to_i == admin_twitter_id.to_i
   end
 
 end
