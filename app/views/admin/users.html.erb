@@ -2,7 +2,32 @@
 <br />
 　ユーザ数：<%= @users.count %><br />
 <br />
+
+<table style="border: 1px #fff solid;">
+  <tr>
+    <th style="border: 1px #fff solid; padding: 5px;">No.</th>
+    <th style="border: 1px #fff solid; padding: 5px;">Login</th>
+    <th style="border: 1px #fff solid; padding: 5px;">Name</th>
+    <th style="border: 1px #fff solid; padding: 5px;">Follows</th>
+    <th style="border: 1px #fff solid; padding: 5px;">Followers</th>
+    <th style="border: 1px #fff solid; padding: 5px;">Tweets</th>
+    <th style="border: 1px #fff solid; padding: 5px;">Favourites</th>
+    <th style="border: 1px #fff solid; padding: 5px;">Updated at</th>
+    <th style="border: 1px #fff solid; padding: 5px;">Created at</th>
+  </tr>
 <% @users.each_with_index{ |user,index| %>
-　<%= index %>：<%= user.login %>：<%= user.name %>：<%= user.created_at.strftime("%Y/%m/%d %H:%M:%S") %><br />
+  <tr>
+    <td style="border: 1px #fff solid; padding: 5px;"><%= index %></td>
+    <td style="border: 1px #fff solid; padding: 5px;"><%= user.login %></td>
+    <td style="border: 1px #fff solid; padding: 5px;"><%= user.name %></td>
+    <td style="border: 1px #fff solid; padding: 5px;"><%= user.friends_count %></td>
+    <td style="border: 1px #fff solid; padding: 5px;"><%= user.followers_count %></td>
+    <td style="border: 1px #fff solid; padding: 5px;"><%= user.statuses_count %></td>
+    <td style="border: 1px #fff solid; padding: 5px;"><%= user.favourites_count %></td>
+    <td style="border: 1px #fff solid; padding: 5px;"><%= user.updated_at.strftime("%Y年%m月%d日(#{Item::WDAYS[user.updated_at.wday]}) %H:%M:%S") %></td>
+    <td style="border: 1px #fff solid; padding: 5px;"><%= user.created_at.strftime("%Y年%m月%d日(#{Item::WDAYS[user.updated_at.wday]}) %H:%M:%S") %></td>
+  </tr>
 <% } %>
+</table>
+
 <br />
