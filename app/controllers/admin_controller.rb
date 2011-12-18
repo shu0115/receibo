@@ -8,7 +8,6 @@ class AdminController < ApplicationController
   # users #
   #-------#
   def users
-    print "[ params ] : " ; p params ;
     @users = User.all( :order => "id ASC" )
   end
 
