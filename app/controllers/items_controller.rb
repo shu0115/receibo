@@ -193,7 +193,7 @@ class ItemsController < ApplicationController
       }
     end
 
-    redirect_to :action => "edit", :id => @item.id
+    redirect_to :action => "edit", :id => @item.id, :from => params[:from]
   end
 
   #--------#

@@ -28,6 +28,7 @@
 		<div class="form-wrapper">
       <%# 修正フォーム %>
 			<form action="/items/update/<%= @item.id %>">
+        <%= hidden_field_tag :from, params[:from] %>
 				<!-- input valueに入力要素を追加 -->
 				<input type="text" name="item[name]" id="buy" value="<%= @item.name %>" placeholder="今、何買った？" class="form-textarea form-name">
 				<div class="price-line clear-fix">
