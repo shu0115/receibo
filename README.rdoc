@@ -2,14 +2,30 @@
 
 簡単登録シンプル家計簿
 
+= 更新履歴
+
+  2011/12/08：年別ページ追加
+  2011/12/07：編集／削除ページ追加、カンマ区切り表示対応
+  2011/12/06：正式リリース前の注意書きを追加
+  2011/12/05：トップページ追加
+  2011/12/04：P4Dハッカソン(アプリ名決定、デザイン、プログラム)
+  2011/12/03：開発前ミーティング(開発アイデア決定)
+
 = ローカル環境動作手順
 
-Gemインストール
+・Gemインストール
 
-  cd /〜.../receibo
+※receiboディレクトリが/Users/username/Sites/receiboの場合(usernameは自身の環境に合わせて変更)
+  cd /Users/username/Sites/receibo
   bundle install
 
-Twitterアプリ登録
+※自分がいるディレクトリを確認したい場合
+  pwd
+  -----
+  /Users/username/Sites
+  -----
+
+・Twitterアプリ登録
 
   http://dev.twitter.com/apps/new
 
@@ -24,7 +40,7 @@ Twitterアプリ登録
   
   ※「Yes, I agree」にチェック、「CAPTCHA」に表示されている単語を入力し、「Create your Twitter application」をクリック
 
-config/local_setting.rb作成
+・config/local_setting.rb作成
 
   # Twitter OAuth Local Setting
   LOCAL_OAUTH_CONSUMER_KEY = "YOUR_CONSUMER_KEY"
@@ -32,23 +48,14 @@ config/local_setting.rb作成
 
 　※Twitterアプリ登録完了後に表示された「Consumer key」を「YOUR_CONSUMER_KEY」に、「Consumer secret」を「YOUR_CONSUMER_SECRET」にそれぞれ入力する
 
-ローカルDB作成
+・ローカルDB作成
 
   rake db:migrate
 
-ローカルサーバ起動
+・ローカルサーバ起動
 
   bundle exec rails s
 
-ページアクセス
+・ページアクセス
 
   http://0.0.0.0:3000/
-
-= 更新履歴
-
-  2011/12/08：年別ページ追加
-  2011/12/07：編集／削除ページ追加、カンマ区切り表示対応
-  2011/12/06：正式リリース前の注意書きを追加
-  2011/12/05：トップページ追加
-  2011/12/04：P4Dハッカソン(アプリ名決定、デザイン、プログラム)
-  2011/12/03：開発前ミーティング(開発アイデア決定)
