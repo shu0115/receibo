@@ -42,10 +42,9 @@ class ApplicationController < ActionController::Base
     
     # セッションが残っており、Usersテーブルにデータが未登録であれば
     if !session[:user_id].blank? and user.blank?
-      # トップページへリダイレクト
-      redirect_to :root and return
+      # ログアウトへリダイレクト
+      redirect_to logout_path and return unless params[:controller] == "sessions"
     end
-
   end
 
   #--------------#
