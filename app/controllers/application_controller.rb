@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   before_filter :ssl_redirect unless Rails.env.development?
 
   # BASIC認証
-  before_filter :password_protected if Rails.env.staging?
+#  before_filter :password_protected if Rails.env.staging?
 
   protected
 
