@@ -11,8 +11,20 @@ class ApplicationController < ActionController::Base
   # BASIC認証
 #  before_filter :password_protected if Rails.env.staging?
 
-  protected
+  # セッション有効期限延長
+  before_filter :reset_session_expires
 
+#  protected
+  private
+
+  #--------------------#
+  # password_protected #
+  #--------------------#
+  # セッション期限延長
+  def reset_session_expires
+    request.session_options[:expire_after] = 2.weeks
+  end
+    
   #--------------------#
   # password_protected #
   #--------------------#
@@ -22,8 +34,6 @@ class ApplicationController < ActionController::Base
       username == "receibo" && password == "receibo1204"
     end
   end
-
-  private
 
   #-----------#
   # authorize #
