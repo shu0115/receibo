@@ -32,11 +32,20 @@ class ApplicationController < ActionController::Base
   def authorize
     if (params[:controller] == "items" and params[:action] == "top") and params[:controller] != "sessions"
       # トップページでログイン済みであればaddへリダイレクト
-      redirect_to :controller => "items", :action => "add" unless session[:user_id].blank?
+      redirect_to :controller => "items", :action => "add" and return unless session[:user_id].blank?
     elsif params[:controller] != "sessions"
       # トップページ以外で未ログインであればトップヘリダイレクト
-      redirect_to :root if session[:user_id].blank?
+      redirect_to :root and return if session[:user_id].blank?
     end
+    
+    user = User.where( :id => session[:user_id] ).select( :id ).first
+    
+    # セッションが残っており、Usersテーブルにデータが未登録であれば
+    if !session[:user_id].blank? and user.blank?
+      # トップページへリダイレクト
+      redirect_to :root and return
+    end
+
   end
 
   #--------------#
