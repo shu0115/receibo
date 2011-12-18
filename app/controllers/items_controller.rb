@@ -53,8 +53,8 @@ class ItemsController < ApplicationController
       flash[:notice] = "登録する情報がありません。"
     end
 
-    from = params[:from]
-    from = "add" if from.blank?
+    from = params[:from].presence || "add"
+
     redirect_to :action => from, :date => params[:date], :keep_item => item
   end
 
@@ -163,7 +163,13 @@ class ItemsController < ApplicationController
   # edit #
   #------#
   def edit
-    @item = Item.find( params[:id] )
+    @item = Item.where( :user_id => session[:user_id], :id => params[:id] ).first
+    
+    if @item.blank?
+      flash[:notice] = "買い物情報がありません。"
+      redirect_to :action => "add" and return
+    end
+    
     
     @items = Item.where( :user_id => session[:user_id] )
     @items = @items.where( "buy_date >= '#{@item.buy_date.beginning_of_day.strftime("%Y-%m-%d %H:%M:%S")}' AND buy_date <= '#{@item.buy_date.end_of_day.strftime("%Y-%m-%d %H:%M:%S")}'" )
@@ -194,10 +200,18 @@ class ItemsController < ApplicationController
   # delete #
   #--------#
   def delete
-    @item = Item.where( :user_id => session[:user_id], :id => params[:id] ).first
-    @item.destroy
+    item = Item.where( :user_id => session[:user_id], :id => params[:id] ).first
+    
+    if item.blank?
+      flash[:notice] = "買い物情報がありません。"
+      redirect_to :action => "add" and return
+    end
 
-    redirect_to :action => "day", :date => @item.buy_date
+    item.destroy
+
+    from = params[:from].presence || "add"
+
+    redirect_to :action => from, :date => item.buy_date
   end
 
 end

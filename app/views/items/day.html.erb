@@ -70,7 +70,7 @@
 
           <% @items.each do |item| %>
             <li class="item">
-            	<a href="/items/edit/<%= item.id %>">
+            	<a href="/items/edit/<%= item.id %>?from=day">
               	<P class="name"><%= item.name %></P>
               	<p class="price">￥<span class="num"><%= number_with_delimiter(item.price, :delimiter => ",") %></span></p>
               </a>
