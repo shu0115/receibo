@@ -2,6 +2,10 @@
 
 簡単登録シンプル家計簿
 
+= ライセンス
+
+Creative Commons — 表示-継承[http://creativecommons.org/licenses/by-sa/2.1/jp/]
+
 = 更新履歴
 
   2011/12/18：正式リリース
