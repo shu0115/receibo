@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   def reset_session_expires
     request.session_options[:expire_after] = 2.weeks
   end
-    
+
   #--------------------#
   # password_protected #
   #--------------------#

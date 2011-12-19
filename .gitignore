@@ -4,3 +4,4 @@ log/*.log
 tmp/
 
 config/local_setting.rb
+.DS_Store
