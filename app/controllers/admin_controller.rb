@@ -8,7 +8,7 @@ class AdminController < ApplicationController
   # users #
   #-------#
   def users
-    @users = User.all( :order => "id ASC" )
+    @users = User.all( :order => "id DESC" )
   end
 
   private
