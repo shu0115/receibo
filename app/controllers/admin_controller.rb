@@ -9,6 +9,7 @@ class AdminController < ApplicationController
   #-------#
   def users
     @users = User.all( :order => "id DESC" )
+    @item_count = Item.count
   end
 
   private
