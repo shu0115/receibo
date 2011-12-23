@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   #-----#
   def top
   end
-  
+
   #-----#
   # add #
   #-----#
@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
     @this_month_sum = Item.where( :user_id => session[:user_id] )
     @this_month_sum = @this_month_sum.where( "buy_date >= '#{Time.now.beginning_of_month.strftime("%Y-%m-%d %H:%M:%S")}' AND buy_date < '#{Time.now.months_since(1).beginning_of_month.strftime("%Y-%m-%d %H:%M:%S")}'" )
     @this_month_sum = @this_month_sum.sum( :price )
-    
+
     @now = Time.now
   end
 
@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
 
     unless @item.blank?
       @item.user_id = session[:user_id]
-    
+
       # 購入日付を格納
       unless params[:date].blank?
         @item.buy_date = Time.parse( params[:date] )
@@ -91,7 +91,7 @@ class ItemsController < ApplicationController
     else
       @this_month = Time.now
     end
-    
+
     @items = Item.where( :user_id => session[:user_id] )
     @items = @items.where( "buy_date >= '#{@this_month.beginning_of_month.strftime("%Y-%m-%d %H:%M:%S")}' AND buy_date <= '#{@this_month.months_since(1).end_of_month.strftime("%Y-%m-%d %H:%M:%S")}'" )
     @this_month_sum = @items.sum( :price )
@@ -127,7 +127,7 @@ class ItemsController < ApplicationController
 
     this_at = @old_item.buy_date unless @old_item.blank?
     latest_at = @new_item.buy_date unless @new_item.blank?
-    
+
     @sum_hash = Hash.new
 
     if this_at.blank? and latest_at.blank?
@@ -141,14 +141,14 @@ class ItemsController < ApplicationController
       while this_at <= latest_at
         @sum_hash[this_at.year] = Hash.new if @sum_hash[this_at.year].blank?
         @sum_hash[this_at.year][this_at.month] = Hash.new if @sum_hash[this_at.year][this_at.month].blank?
-        
+
         # 年合計算出
         if @sum_hash[this_at.year][:sum].blank?
           this_year_sum = Item.where( :user_id => session[:user_id] )
           this_year_sum = this_year_sum.where( "buy_date >= '#{this_at.beginning_of_year.strftime("%Y-%m-%d %H:%M:%S")}' AND buy_date < '#{this_at.years_since(1).beginning_of_year.strftime("%Y-%m-%d %H:%M:%S")}'" )
           @sum_hash[this_at.year][:sum] = this_year_sum.sum( :price )
         end
-        
+
         # 月合計算出
         this_month_sum = Item.where( :user_id => session[:user_id] )
         this_month_sum = this_month_sum.where( "buy_date >= '#{this_at.beginning_of_month.strftime("%Y-%m-%d %H:%M:%S")}' AND buy_date < '#{this_at.months_since(1).beginning_of_month.strftime("%Y-%m-%d %H:%M:%S")}'" )
@@ -164,18 +164,17 @@ class ItemsController < ApplicationController
   #------#
   def edit
     @item = Item.where( :user_id => session[:user_id], :id => params[:id] ).first
-    
+
     if @item.blank?
       flash[:notice] = "買い物情報がありません。"
       redirect_to :action => "add" and return
     end
-    
-    
+
     @items = Item.where( :user_id => session[:user_id] )
     @items = @items.where( "buy_date >= '#{@item.buy_date.beginning_of_day.strftime("%Y-%m-%d %H:%M:%S")}' AND buy_date <= '#{@item.buy_date.end_of_day.strftime("%Y-%m-%d %H:%M:%S")}'" )
     @today_sum = @items.sum( :price )
     @items = @items.order( "created_at DESC" ).all
-    
+
     @this_day = @item.buy_date
   end
 
@@ -201,7 +200,7 @@ class ItemsController < ApplicationController
   #--------#
   def delete
     item = Item.where( :user_id => session[:user_id], :id => params[:id] ).first
-    
+
     if item.blank?
       flash[:notice] = "買い物情報がありません。"
       redirect_to :action => "add" and return

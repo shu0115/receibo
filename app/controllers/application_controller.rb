@@ -47,9 +47,9 @@ class ApplicationController < ActionController::Base
       # トップページ以外で未ログインであればトップヘリダイレクト
       redirect_to :root and return if session[:user_id].blank?
     end
-    
+
     user = User.where( :id => session[:user_id] ).select( :id ).first
-    
+
     # セッションが残っており、Usersテーブルにデータが未登録であれば
     if !session[:user_id].blank? and user.blank?
       # ログアウトへリダイレクト

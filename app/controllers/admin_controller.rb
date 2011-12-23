@@ -13,12 +13,13 @@ class AdminController < ApplicationController
   end
 
   private
+
   #-----------#
   # authorize #
   #-----------#
   def admin_authorize
     user = User.where( :id => session[:user_id] ).select( :twitter_id ).first
-    
+
     if defined? ADMIN_USER_TWITTER_ID_1
       admin_twitter_id = ADMIN_USER_TWITTER_ID_1
     elsif defined? ENV['ADMIN_USER_TWITTER_ID_1']

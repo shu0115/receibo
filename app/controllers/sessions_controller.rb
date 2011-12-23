@@ -8,9 +8,9 @@ class SessionsController < ApplicationController
       @request_token = TwitterAuth.consumer.get_request_token({:oauth_callback=>oauth_callback})
       session[:request_token] = @request_token.token
       session[:request_token_secret] = @request_token.secret
-     
+
       url = @request_token.authorize_url
-      url << "&oauth_callback=#{CGI.escape(TwitterAuth.oauth_callback)}" if TwitterAuth.oauth_callback?      
+      url << "&oauth_callback=#{CGI.escape(TwitterAuth.oauth_callback)}" if TwitterAuth.oauth_callback?
       redirect_to url
     else
       # we don't have to do anything, it's just a simple form for HTTP basic!
