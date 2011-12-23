@@ -26,6 +26,19 @@
 
   <%# Googleアナリティクス %>
   <script type="text/javascript">
+
+<% if true %>
+var a=document.getElementsByTagName("a");
+for(var i=0;i<a.length;i++)
+{
+    a[i].onclick=function()
+    {
+        window.location=this.getAttribute("href");
+        return false
+    }
+}
+<% end %>
+
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-27637366-2']);
     _gaq.push(['_trackPageview']);
