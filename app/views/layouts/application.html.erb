@@ -24,16 +24,15 @@
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 
-  <%# Googleアナリティクス %>
   <script type="text/javascript">
+    <%# フルスクリーンモード対応 %>
+    function link(url) {
+      setTimeout(function (){
+        location.href = url;
+        }, 0);
+      }
 
-
-function link(url) {
-	setTimeout(function (){
-		location.href = url;
-	}, 0);
-}
-
+    <%# Googleアナリティクス %>
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-27637366-2']);
     _gaq.push(['_trackPageview']);
