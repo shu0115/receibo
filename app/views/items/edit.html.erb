@@ -1,7 +1,7 @@
 
 	<header class="header clearfix">
-		<h1 class="logo"><a href="/"><img src="/images/logo.png" alt="Receibo-レシーボ" width="140" height="35"></a></h1>
-		<p class="header-btn"><a href="/items/day?date=<%= CGI.escape(@this_day.strftime("%Y-%m-%d").to_s) %>"><span class="num"><%= @this_day.strftime("%m/%d") %></span>（<%= Item::WDAYS[@this_day.wday] %>）&nbsp;<span class="price">￥<span class="num"><%= number_with_delimiter(@today_sum, :delimiter => ",") %></span></a></p>
+		<h1 class="logo"><a onClick="link('/');"><img src="/images/logo.png" alt="Receibo-レシーボ" width="140" height="35"></a></h1>
+		<p class="header-btn"><a onClick="link('/items/day?date=<%= CGI.escape(@this_day.strftime("%Y-%m-%d").to_s) %>');"><span class="num"><%= @this_day.strftime("%m/%d") %></span>（<%= Item::WDAYS[@this_day.wday] %>）&nbsp;<span class="price">￥<span class="num"><%= number_with_delimiter(@today_sum, :delimiter => ",") %></span></a></p>
 	</header>
 
 	<article>

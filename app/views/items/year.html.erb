@@ -1,9 +1,6 @@
 
   <header class="header clearfix">
-		<h1 class="logo"><a href="/"><img src="/images/logo.png" alt="Receibo-レシーボ" width="140" height="35"></a></h1>
-		<!-- 
-		<p class="header-btn"><a href="#"><span class="num">2011</span>年<span class="price">￥<span class="num">2,586,327</span></a></p>
-		 -->
+		<h1 class="logo"><a onClick="link('/');"><img src="/images/logo.png" alt="Receibo-レシーボ" width="140" height="35"></a></h1>    
 	</header>
 
 	<article>
@@ -23,7 +20,7 @@
           <% unless sum[1][month].blank? %>
           <li class="item">
             <% this_month = "#{sum[0]}-#{month}-01" %>
-  					<a href="/items/month?date=<%= CGI.escape(this_month) %>">
+  					<a onClick="link('/items/month?date=<%= CGI.escape(this_month) %>');">
               <P class="name"><span class="num"><%= month %></span>月</P>
               <p class="price">￥<span class="num"><%= number_with_delimiter(sum[1][month], :delimiter => ",") %></span></p>
             </a>

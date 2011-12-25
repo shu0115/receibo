@@ -1,7 +1,7 @@
 
 	<header class="header clearfix">
-		<h1 class="logo"><a href="/"><img src="/images/logo.png" alt="Receibo-レシーボ" width="140" height="35"></a></h1>
-		<p class="header-btn"><a href="/items/month?date=<%= CGI.escape(@this_day.strftime("%Y-%m-%d").to_s) %>"><span class="num"><%= @this_day.strftime("%m") %></span>月&nbsp;<span class="price">￥<span class="num"><%= number_with_delimiter(@this_month_sum, :delimiter => ",") %></span></a></p>
+		<h1 class="logo"><a onClick="link('/');"><img src="/images/logo.png" alt="Receibo-レシーボ" width="140" height="35"></a></h1>
+		<p class="header-btn"><a onClick="link('/items/month?date=<%= CGI.escape(@this_day.strftime("%Y-%m-%d").to_s) %>');"><span class="num"><%= @this_day.strftime("%m") %></span>月&nbsp;<span class="price">￥<span class="num"><%= number_with_delimiter(@this_month_sum, :delimiter => ",") %></span></a></p>
 	</header>
 
 	<article>
@@ -50,7 +50,7 @@
 
           <% @items.each do |item| %>
             <li class="item">
-            	<a href="/items/edit/<%= item.id %>?from=day">
+            	<a onClick="link('/items/edit/<%= item.id %>?from=day');">
               	<P class="name"><%= item.name %></P>
               	<p class="price">￥<span class="num"><%= number_with_delimiter(item.price, :delimiter => ",") %></span></p>
               </a>

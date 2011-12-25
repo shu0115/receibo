@@ -1,7 +1,7 @@
 
 	<header class="header clearfix">
-		<h1 class="logo"><a href="/"><img src="/images/logo.png" alt="Receibo-レシーボ" width="140" height="35"></a></h1>
-		<p class="header-btn"><a href="/items/year"><span class="num"><%= @this_month.strftime("%Y") %></span>年&nbsp;<span class="price">￥<span class="num"><%= number_with_delimiter(@this_year_sum, :delimiter => ",") %></span></a></p>
+		<h1 class="logo"><a onClick="link('/');"><img src="/images/logo.png" alt="Receibo-レシーボ" width="140" height="35"></a></h1>
+		<p class="header-btn"><a onClick="link('/items/year');"><span class="num"><%= @this_month.strftime("%Y") %></span>年&nbsp;<span class="price">￥<span class="num"><%= number_with_delimiter(@this_year_sum, :delimiter => ",") %></span></a></p>
 	</header>
 
 	<article>
@@ -17,7 +17,7 @@
 
           <% 1.upto(@this_month.end_of_month.day){ |day| %>
             <li class="item">
-            	<a href="/items/day?date=<%= CGI.escape(@this_month.strftime("%Y-%m-").to_s + day.to_s) %>">
+            	<a onClick="link('/items/day?date=<%= CGI.escape(@this_month.strftime("%Y-%m-").to_s + day.to_s) %>');">
 	              <P class="name"><span class="num"><%= @this_month.strftime("%m") %>/<%= sprintf("%02d", day) %></span>（<%= Item::WDAYS[Time.local(@this_month.year, @this_month.month, day, 0, 0, 0).wday] %>）</P>
 	              <p class="price">￥<span class="num"><%= number_with_delimiter(@day_sum_array[day], :delimiter => ",") %></span></p>
             	</a>
