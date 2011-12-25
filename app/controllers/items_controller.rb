@@ -192,7 +192,8 @@ class ItemsController < ApplicationController
       }
     end
 
-    redirect_to :action => "edit", :id => @item.id, :from => params[:from]
+#    redirect_to :action => "edit", :id => @item.id, :from => params[:from]
+    redirect_to :action => params[:from], :id => @item.id, :from => params[:from], :date => @item.buy_date.strftime("%Y-%m-%d")
   end
 
   #--------#
