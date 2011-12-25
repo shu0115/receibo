@@ -47,7 +47,9 @@
 
 			<!-- 削除ボタン（この部分をadd.htmlのulとまるっと差し替え） -->
 			<div class="receipt-inner pdgtop10">
-				<p class="btn-cmn"><%= link_to 'この買い物を削除する', { :action => "delete", :id => @item.id, :from => params[:from] }, { :confirm => '本当に削除してよろしいですか？' } %></p>
+				<p class="btn-cmn">
+          <a onClick="link('/items/delete/<%= @item.id %>?from=<%= params[:from] %>');" data-confirm="本当に削除してよろしいですか？">この買い物を削除する</a>
+        </p>
 			</div>
 			<!-- //差し替え部分END -->
 		</div>
