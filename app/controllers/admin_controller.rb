@@ -18,13 +18,11 @@ class AdminController < ApplicationController
   # count #
   #-------#
   def count
+    limit_set = params[:limit].presence || 100
     @item_count = Item.count
     @users_count = User.count
-    
-#    Circle.joins(:members).select('count(*) as members_count, circle.id, name').group('circle.id').order('members_count DESC')
-    @users = User.joins(:item).select('count(*) as item_count, users.id, users.name').group('users.id').order( "item_count DESC" )
-    print "[ @users ] : " ; p @users ;
-#    @users = User.select( "users.*, count(items.user_id) as item_count" ).joins( :item ).group( "items.user_id" ).order( "item_count DESC" ).limit( 500 ).all
+
+    @users = User.joins( :item ).select( 'count(*) as item_count, users.id' ).group( 'users.id' ).order( "item_count DESC" ).limit( limit_set ).all
   end
   
   #------#
