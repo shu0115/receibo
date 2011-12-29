@@ -24,7 +24,7 @@
   <% @users.each_with_index{ |data,index| %>
     <% user = User.where( :id => data.id ).first %>
   <tr>
-    <td style="border: 1px #fff solid; padding: 5px;"><%= (@users.length - index) %></td>
+    <td style="border: 1px #fff solid; padding: 5px;"><%= (index + 1) %></td>
     <td style="border: 1px #fff solid; padding: 5px; text-align: right;"><%= data.item_count %></td>
     <td style="border: 1px #fff solid; padding: 5px;"><%= user.login %></td>
     <td style="border: 1px #fff solid; padding: 5px;"><%= user.name %></td>

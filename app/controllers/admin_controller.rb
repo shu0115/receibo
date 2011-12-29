@@ -18,7 +18,7 @@ class AdminController < ApplicationController
   # count #
   #-------#
   def count
-    limit_set = params[:limit].presence || 100
+    limit_set = params[:limit].presence || 500
     @item_count = Item.count
     @users_count = User.count
 
