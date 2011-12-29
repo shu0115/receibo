@@ -38,10 +38,10 @@ class AdminController < ApplicationController
     @now_day = @first_day.buy_date
 
     while @now_day <= @last_day.buy_date
-      @now_day = @now_day.since( 1.day )
       @days_count_hash[@now_day.strftime("%Y%m%d")] = Hash.new
       @days_count_hash[@now_day.strftime("%Y%m%d")][:day] = @now_day
       @days_count_hash[@now_day.strftime("%Y%m%d")][:count] = Item.where( "buy_date >= '#{@now_day.beginning_of_day.strftime("%Y-%m-%d %H:%M:%S")}' AND buy_date <= '#{@now_day.end_of_day.strftime("%Y-%m-%d %H:%M:%S")}'" ).count
+      @now_day = @now_day.since( 1.day )
     end
   end
 
