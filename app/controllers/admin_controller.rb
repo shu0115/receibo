@@ -22,7 +22,7 @@ class AdminController < ApplicationController
     @users_count = User.count
     
 #    Circle.joins(:members).select('count(*) as members_count, circle.id, name').group('circle.id').order('members_count DESC')
-    @users = User.joins(:item).select('count(*) as item_count, users.id').group('users.id').order( "item_count DESC" )
+    @users = User.joins(:item).select('count(*) as item_count, users.id, users.name').group('users.id').order( "item_count DESC" )
     print "[ @users ] : " ; p @users ;
 #    @users = User.select( "users.*, count(items.user_id) as item_count" ).joins( :item ).group( "items.user_id" ).order( "item_count DESC" ).limit( 500 ).all
   end
