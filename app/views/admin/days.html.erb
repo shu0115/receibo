@@ -1,0 +1,24 @@
+
+<br />
+　ユーザ数：<%= @users_count %><br />
+　総買いもの数：<%= @item_count %><br />
+<br />
+
+<%= render :partial => 'link_menu' %>
+
+<table style="border: 1px #fff solid;">
+  <tr>
+    <th style="border: 1px #fff solid; padding: 5px;">No.</th>
+    <th style="border: 1px #fff solid; padding: 5px;">Day</th>
+    <th style="border: 1px #fff solid; padding: 5px;">Item Count</th>
+  </tr>
+<% @days_count_hash.sort{ |a, b| b[0] <=> a[0] }.each_with_index{ |data,index| %>
+  <tr>
+    <td style="border: 1px #fff solid; padding: 5px;"><%= (@days_count_hash.length - index) %></td>
+    <td style="border: 1px #fff solid; padding: 5px;"><%= data[1][:day].strftime("%Y年%m月%d日(#{Item::WDAYS[data[1][:day].wday]})") %></td>
+    <td style="border: 1px #fff solid; padding: 5px;"><%= data[1][:count] %></td>
+  </tr>
+<% } %>
+</table>
+
+<br />

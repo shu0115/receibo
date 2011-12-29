@@ -8,8 +8,39 @@ class AdminController < ApplicationController
   # users #
   #-------#
   def users
-    @users = User.all( :order => "id DESC" )
+    limit_set = params[:limit].presence || 500
+    @users = User.includes( :item ).order( "id DESC" ).limit( limit_set ).all
     @item_count = Item.count
+  end
+  
+  #-------#
+  # count #
+  #-------#
+  def count
+    @item_count = Item.count
+    @users_count = User.count
+    
+    @users = User.select( "users.*, count() as item_count" ).joins( :item ).group( "user_id" ).order( "item_count DESC" ).limit( 500 ).all
+  end
+  
+  #------#
+  # days #
+  #------#
+  def days
+    @item_count = Item.count
+    @users_count = User.count
+    
+    @days_count_hash = Hash.new
+    @first_day = Item.order( "buy_date ASC" ).select( "buy_date" ).first
+    @last_day = Item.order( "buy_date DESC" ).select( "buy_date" ).first
+    @now_day = @first_day.buy_date
+
+    while @now_day <= @last_day.buy_date
+      @now_day = @now_day.since( 1.day )
+      @days_count_hash[@now_day.strftime("%Y%m%d")] = Hash.new
+      @days_count_hash[@now_day.strftime("%Y%m%d")][:day] = @now_day
+      @days_count_hash[@now_day.strftime("%Y%m%d")][:count] = Item.where( "buy_date >= '#{@now_day.beginning_of_day.strftime("%Y-%m-%d %H:%M:%S")}' AND buy_date <= '#{@now_day.end_of_day.strftime("%Y-%m-%d %H:%M:%S")}'" ).count
+    end
   end
 
   private

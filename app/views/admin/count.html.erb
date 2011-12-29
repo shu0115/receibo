@@ -1,6 +1,6 @@
 
 <br />
-　ユーザ数：<%= @users.count %><br />
+　ユーザ数：<%= @users_count %><br />
 　総買いもの数：<%= @item_count %><br />
 <br />
 
@@ -22,7 +22,7 @@
 <% @users.each_with_index{ |user,index| %>
   <tr>
     <td style="border: 1px #fff solid; padding: 5px;"><%= (@users.count - index) %></td>
-    <td style="border: 1px #fff solid; padding: 5px;"><%= user.item.count %></td>
+    <td style="border: 1px #fff solid; padding: 5px;"><%= user.item_count %></td>
     <td style="border: 1px #fff solid; padding: 5px;"><%= user.login %></td>
     <td style="border: 1px #fff solid; padding: 5px;"><%= user.name %></td>
     <td style="border: 1px #fff solid; padding: 5px;"><%= user.friends_count %></td>
