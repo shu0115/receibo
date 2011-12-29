@@ -19,10 +19,13 @@
     <th style="border: 1px #fff solid; padding: 5px;">Updated at</th>
     <th style="border: 1px #fff solid; padding: 5px;">Created at</th>
   </tr>
-<% @users.each_with_index{ |user,index| %>
+
+  <%# @users.each_with_index{ |user,index| %>
+  <% @users.each_with_index{ |data,index| %>
+    <% user = User.where( :id => data.id ).first %>
   <tr>
     <td style="border: 1px #fff solid; padding: 5px;"><%= (@users.length - index) %></td>
-    <td style="border: 1px #fff solid; padding: 5px;"><%= user.item_count %></td>
+    <td style="border: 1px #fff solid; padding: 5px;"><%= data.item_count %></td>
     <td style="border: 1px #fff solid; padding: 5px;"><%= user.login %></td>
     <td style="border: 1px #fff solid; padding: 5px;"><%= user.name %></td>
     <td style="border: 1px #fff solid; padding: 5px;"><%= user.friends_count %></td>
@@ -32,7 +35,7 @@
     <td style="border: 1px #fff solid; padding: 5px;"><%= user.updated_at.strftime("%Y年%m月%d日(#{Item::WDAYS[user.updated_at.wday]}) %H:%M:%S") %></td>
     <td style="border: 1px #fff solid; padding: 5px;"><%= user.created_at.strftime("%Y年%m月%d日(#{Item::WDAYS[user.updated_at.wday]}) %H:%M:%S") %></td>
   </tr>
-<% } %>
+  <% } %>
 </table>
 
 <br />
