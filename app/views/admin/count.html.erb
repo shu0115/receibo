@@ -21,7 +21,7 @@
   </tr>
 <% @users.each_with_index{ |user,index| %>
   <tr>
-    <td style="border: 1px #fff solid; padding: 5px;"><%= (@users.count - index) %></td>
+    <td style="border: 1px #fff solid; padding: 5px;"><%= (@users.length - index) %></td>
     <td style="border: 1px #fff solid; padding: 5px;"><%= user.item_count %></td>
     <td style="border: 1px #fff solid; padding: 5px;"><%= user.login %></td>
     <td style="border: 1px #fff solid; padding: 5px;"><%= user.name %></td>
