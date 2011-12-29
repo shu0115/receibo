@@ -9,7 +9,7 @@
 <table style="border: 1px #fff solid;">
   <tr>
     <th style="border: 1px #fff solid; padding: 5px;">No.</th>
-    <th style="border: 1px #fff solid; padding: 5px;">Item Count</th>
+    <th style="border: 1px #fff solid; padding: 5px;">Count</th>
     <th style="border: 1px #fff solid; padding: 5px;">Login</th>
     <th style="border: 1px #fff solid; padding: 5px;">Name</th>
     <th style="border: 1px #fff solid; padding: 5px;">Follows</th>
@@ -25,7 +25,7 @@
     <% user = User.where( :id => data.id ).first %>
   <tr>
     <td style="border: 1px #fff solid; padding: 5px;"><%= (@users.length - index) %></td>
-    <td style="border: 1px #fff solid; padding: 5px;"><%= data.item_count %></td>
+    <td style="border: 1px #fff solid; padding: 5px; text-align: right;"><%= data.item_count %></td>
     <td style="border: 1px #fff solid; padding: 5px;"><%= user.login %></td>
     <td style="border: 1px #fff solid; padding: 5px;"><%= user.name %></td>
     <td style="border: 1px #fff solid; padding: 5px;"><%= user.friends_count %></td>
