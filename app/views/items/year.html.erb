@@ -4,7 +4,7 @@
 	</header>
 
 	<article>
-    <% @sum_hash.sort{ |a, b| a[0] <=> b[0] }.each{ |sum| %>
+    <% @sum_hash.sort{ |a, b| b[0] <=> a[0] }.each{ |sum| %>
 		<div class="receipt month">
 			<div class="receipt-hdr">
 				<div class="receipt-hdr-right"></div>
@@ -16,7 +16,8 @@
 					<p class="price">￥<span class="num"><%= number_with_delimiter(sum[1][:sum], :delimiter => ",") %></span></p>
 				</li>
 
-        <% 1.upto(12){ |month| %>
+        <%# 1.upto(12){ |month| %>
+        <% 12.downto(1){ |month| %>
           <% unless sum[1][month].blank? %>
           <li class="item">
             <% this_month = "#{sum[0]}-#{month}-01" %>

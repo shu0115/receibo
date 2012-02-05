@@ -4,7 +4,7 @@ class Item < ActiveRecord::Base
 
   belongs_to :user
 
-  validates :name, :presence => true
+#  validates :name, :presence => true
   validates :price, :presence => true
   validates :price, :numericality => true, :allow_blank => true
 end
