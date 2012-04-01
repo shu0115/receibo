@@ -562,6 +562,12 @@ visibility: hidden;
 	height: 26px;
 	line-height: 26px;
 }
+.caption{
+	margin-top: 10px;
+	font-size: 11px;
+	line-height: 1.4em;
+	color: #e17a00;
+}
 *--------------------ADJUST----------------------*/
 .mgnbtm10{
 	margin-bottom: 10px;
