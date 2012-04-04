@@ -213,4 +213,12 @@ class ItemsController < ApplicationController
     redirect_to :action => from, :date => item.buy_date
   end
 
+  #---------#
+  # history #
+  #---------#
+  def history
+    @items = Item.select('name, max(id) as max_id').where(:user_id => session[:user_id])
+    @items = @items.group(:name).order('max_id desc').all 
+    render :layout => !request.xhr?
+  end
 end

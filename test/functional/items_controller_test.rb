@@ -46,4 +46,9 @@ class ItemsControllerTest < ActionController::TestCase
 
     assert_redirected_to items_path
   end
+
+  test "should get history" do
+    get :history
+    assert_response :success
+  end
 end
