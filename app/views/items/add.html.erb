@@ -17,10 +17,11 @@
 				<input autocomplete="off" type="text" name="item[name]" id="buy" value="<%= params[:keep_item][:name] unless params[:keep_item].blank? %>" placeholder="いま、何買った？" class="form-textarea form-name">
         <ul id="history">
         </ul>
+        
         <%# 金額 %>
 				<div class="price-line clear-fix">
 					<p class="yen">￥</p>
-					<input pattern="[0-9]*" type="number" name="item[price]" id="price" value="<%= params[:keep_item][:price] unless params[:keep_item].blank? %>" placeholder="00,000" class="form-textarea form-price">
+					<input pattern="[-|0-9]*" type="number" name="item[price]" id="price" value="<%= params[:keep_item][:price] unless params[:keep_item].blank? %>" placeholder="00,000" class="form-textarea form-price">
 					<input type="submit" name="commit" value="+" class="form-submit-add">
 				</div>
 			</form>
