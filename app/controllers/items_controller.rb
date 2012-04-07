@@ -217,9 +217,8 @@ class ItemsController < ApplicationController
   # history #
   #---------#
   def history
-    "----- history -----"
     @items = Item.select( 'name, max(id) AS max_id' ).where( user_id: session[:user_id] )
-    @items = @items.group(:name).order('max_id DESC').all 
+    @items = @items.group(:name).order('max_id DESC').limit(10).all
     render :layout => !request.xhr?
   end
 end
