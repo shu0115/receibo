@@ -10,10 +10,12 @@
 			<form action="/items/update/<%= @item.id %>">
         <%= hidden_field_tag :from, params[:from] %>
 				<!-- input valueに入力要素を追加 -->
-				<input type="text" name="item[name]" id="buy" value="<%= @item.name %>" placeholder="今、何買った？" class="form-textarea form-name">
+				<input autocomplete="off" type="text" name="item[name]" id="buy" value="<%= @item.name %>" placeholder="今、何買った？" class="form-textarea form-name">
+        <ul id="history">
+        </ul>
 				<div class="price-line clear-fix">
 					<p class="yen">￥</p>
-					<input type="number" name="item[price]" id="price" value="<%= @item.price %>" placeholder="00,000" class="form-textarea form-price" src="580">
+					<input pattern="[0-9]*" type="number" name="item[price]" id="price" value="<%= @item.price %>" placeholder="00,000" class="form-textarea form-price" src="580">
 					<!-- input valueに"なおす"  classに"edit"を追加 -->
 					<input type="submit" name="commit" value="なおす"class="form-submit-add edit">
 				</div>

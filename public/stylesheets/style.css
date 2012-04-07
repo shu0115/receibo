@@ -627,4 +627,31 @@ visibility: hidden;
 .red{
 	color: #CC0000;
 }
+
+form#new_item {
+    position: relative;
+}
+
+ul#history {
+    z-index: 10;
+    position: absolute;
+    top: 30px;
+    margin: 0 42px;
+    font-size: 14px;
+    color: #000;
+    padding: 5px;
+    width: 220px;
+    height: 18px
+}
+
+ul#history > li {
+    padding: 5px;
+    background: #fff;
+    text-shadow: none;
+}
+
+ul#history > li > a{
+  display: block;
+  color: #000;
+}
 /*--------------------//ADJUST----------------------*/
