@@ -45,6 +45,10 @@ module Receibo
 end
 
 module TwitterAuth
+  def self.path_prefix
+    "http://api.twitter.com/1"
+  end
+
   def self.config( environment = Rails.env )
     @config ||= {}
     @config[environment] ||= YAML.load(ERB.new(File.read("#{Rails.root}/config/twitter_auth.yml")).result)[environment]
