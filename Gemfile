@@ -31,10 +31,13 @@ gem 'sqlite3'
 # end
 
 # Heroku用 2011/12/04 Add
-gem 'heroku'
+#gem 'heroku'
 
 # Twitter用 2011/12/04 Add
-gem 'twitter-auth', :require => 'twitter_auth/engine', :git => 'git://github.com/rokudenashi/twitter-auth.git', :branch => 'rails_3'
+#gem 'twitter-auth', :require => 'twitter_auth/engine', :git => 'git://github.com/rokudenashi/twitter-auth.git', :branch => 'rails_3'
+gem 'twitter-auth', :require => 'twitter_auth/engine', :git => 'git://github.com/rokudenashi/twitter-auth.git'
 gem 'oauth'
 gem 'ezcrypto'
 gem 'json'
+
+gem 'tapp'

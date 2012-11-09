@@ -28,7 +28,8 @@ class SessionsController < ApplicationController
   end
 
   def oauth_callback
-    unless session[:request_token] && session[:request_token_secret] 
+    print "[ params ] : " ; p params ;
+    unless session[:request_token] && session[:request_token_secret]
       authentication_failed('No authentication information was found in the session. Please try again.') and return
     end
 
@@ -40,11 +41,13 @@ class SessionsController < ApplicationController
 
     oauth_verifier = params["oauth_verifier"]
     @access_token = @request_token.get_access_token(:oauth_verifier => oauth_verifier)
-    
+
     # The request token has been invalidated
     # so we nullify it in the session.
     session[:request_token] = nil
     session[:request_token_secret] = nil
+
+    print "[ @access_token ] : " ; p @access_token ;
 
     @user = User.identify_or_create_from_access_token(@access_token)
 
@@ -52,19 +55,21 @@ class SessionsController < ApplicationController
 
     self.remember_token = @user.remember_me
 
-    authentication_succeeded 
+    authentication_succeeded
   rescue Net::HTTPServerException => e
+    puts "[ ---------- Net::HTTPServerException e ---------- ]" ; e.tapp ;
     case e.message
       when '401 "Unauthorized"'
         authentication_failed('This authentication request is no longer valid. Please try again.') and return
       else
         authentication_failed('There was a problem trying to authenticate you. Please try again.') and return
-    end 
+    end
   # OAuth Unauthorized Rescue Add
   rescue OAuth::Unauthorized => e
+    puts "[ ---------- OAuth::Unauthorized e ---------- ]" ; e.tapp ;
     authentication_failed(t('This authentication request is no longer valid Please try again')) and return
   end
-  
+
   def destroy
     logout_keeping_session!
     redirect_back_or_default('/')
