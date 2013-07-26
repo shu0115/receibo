@@ -11,6 +11,12 @@ class SessionsController < ApplicationController
 
       url = @request_token.authorize_url
       url << "&oauth_callback=#{CGI.escape(TwitterAuth.oauth_callback)}" if TwitterAuth.oauth_callback?
+
+      # ★2013/07/26 TwitterAPI Ver.1廃止対応
+#      url.gsub!('https://twitter.com/oauth/authenticate', 'https://api.twitter.com/oauth/authenticate')
+      url.gsub!('https://api.twitter.com/1.1/oauth/authenticate', 'https://api.twitter.com/oauth/authenticate')
+      puts "[ ---------- url ---------- ]" ; url.tapp ;
+
       redirect_to url
     else
       # we don't have to do anything, it's just a simple form for HTTP basic!
