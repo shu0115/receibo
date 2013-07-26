@@ -5,14 +5,25 @@ class SessionsController < ApplicationController
   def new
     if TwitterAuth.oauth?
       oauth_callback = request.protocol + request.host_with_port + '/oauth_callback'
+      puts "[ ---------- oauth_callback ---------- ]" ; oauth_callback.tapp ;
       @request_token = TwitterAuth.consumer.get_request_token({:oauth_callback=>oauth_callback})
+      puts "[ ---------- @request_token ---------- ]" ; @request_token.tapp ;
       session[:request_token] = @request_token.token
       session[:request_token_secret] = @request_token.secret
 
+      puts "[ ---------- session[:request_token] ---------- ]" ; session[:request_token].tapp ;
+      puts "[ ---------- session[:request_token_secret] ---------- ]" ; session[:request_token_secret].tapp ;
+
+      'https://api.twitter.com/oauth/authenticate'
       url = @request_token.authorize_url
       url << "&oauth_callback=#{CGI.escape(TwitterAuth.oauth_callback)}" if TwitterAuth.oauth_callback?
+      puts "[ ---------- url ---------- ]" ; url.tapp ;
+      url.gsub!('https://api.twitter.com/1.1/oauth/authenticate', 'https://api.twitter.com/oauth/authenticate')
+      puts "[ ---------- url ---------- ]" ; url.tapp ;
+
       redirect_to url
     else
+      puts "[ ---------- we don't have to do anything, it's just a simple form for HTTP basic! ---------- ]"
       # we don't have to do anything, it's just a simple form for HTTP basic!
     end
   end

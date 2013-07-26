@@ -4,6 +4,8 @@ module OAuth
     # The less intrusive way. Otherwise, if we are to do it correctly inside consumer,
     # we need to restructure and touch more methods: request(), sign!(), etc.
     def request(http_method, path, *arguments)
+      puts "[ ---------- http_method ---------- ]" ; http_method.tapp ;
+      puts "[ ---------- path ---------- ]" ; path.tapp ;
       request_uri = URI.parse(path)
       site_uri = consumer.uri
       is_service_uri_different = (request_uri.absolute? && request_uri != site_uri)
@@ -24,6 +26,8 @@ module OAuth
     #   @response = @token.get('/people', { 'Accept'=>'application/xml' })
     #
     def get(path, headers = {})
+      puts "[ ---------- path ---------- ]" ; path.tapp ;
+      puts "[ ---------- headers ---------- ]" ; headers.tapp ;
       request(:get, path, headers)
     end
 
