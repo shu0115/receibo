@@ -1,5 +1,0 @@
-#!/usr/bin/env ruby
-
-require 'tapp/command'
-
-Tapp::Command.start
