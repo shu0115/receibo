@@ -46,7 +46,9 @@ end
 
 module TwitterAuth
   def self.path_prefix
-    "http://api.twitter.com/1"
+    # ★2013/07/26 TwitterAPI Ver.1廃止対応
+#    "http://api.twitter.com/1"
+    "https://api.twitter.com/1.1"
   end
 
   def self.config( environment = Rails.env )
